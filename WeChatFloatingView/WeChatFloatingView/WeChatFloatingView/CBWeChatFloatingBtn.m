@@ -7,6 +7,9 @@
 //
 
 #import "CBWeChatFloatingBtn.h"
+#import "CBSemiCircleView.h"
+
+#define kCircleWidth 150
 
 @interface CBWeChatFloatingBtn () {
     CGPoint _lastPointByWindow;
@@ -17,22 +20,26 @@
 
 @implementation CBWeChatFloatingBtn
 static CBWeChatFloatingBtn *floationBtn;
-
+static CBSemiCircleView *semiCircleView;
 #pragma mark - Public
 + (void)show {
     // 全局初始化一次
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-         floationBtn = [[CBWeChatFloatingBtn alloc] initWithFrame:CGRectMake(10.f, 100.f, 60.f, 60.f)];
+        floationBtn = [[CBWeChatFloatingBtn alloc] initWithFrame:CGRectMake(10.f, 100.f, 60.f, 60.f)];
+        semiCircleView = [[CBSemiCircleView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height, kCircleWidth, kCircleWidth)];
+        semiCircleView.backgroundColor = [UIColor redColor];
     });
     
     // 显示在最顶层
+    if (!semiCircleView.superview) {
+        [[UIApplication sharedApplication].keyWindow addSubview:semiCircleView];
+        [[UIApplication sharedApplication].keyWindow bringSubviewToFront:semiCircleView];
+    }
     if (!floationBtn.superview) {
         [[UIApplication sharedApplication].keyWindow addSubview:floationBtn];
         [[UIApplication sharedApplication].keyWindow bringSubviewToFront:floationBtn];
     }
-    
-    
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -53,9 +60,17 @@ static CBWeChatFloatingBtn *floationBtn;
 }
 
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    NSLog(@"触发移动");
     UITouch *touch = [touches anyObject];
     CGPoint currentPoint = [touch locationInView:self.superview];
 
+    // 四分之一圆显示
+    if (CGRectEqualToRect(CGRectMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height, kCircleWidth, kCircleWidth), semiCircleView.frame)) {
+        [UIView animateWithDuration:0.2f animations:^{
+            semiCircleView.frame = CGRectMake([UIScreen mainScreen].bounds.size.width - kCircleWidth, [UIScreen mainScreen].bounds.size.height - kCircleWidth, kCircleWidth, kCircleWidth);
+        }];
+    }
+    
     // 计算 floatingBtn 的 center 坐标
     CGFloat centerX = currentPoint.x + (self.frame.size.width/2 - _pointBySelf.x);
     CGFloat centerY = currentPoint.y + (self.frame.size.width/2 - _pointBySelf.y);
@@ -73,10 +88,24 @@ static CBWeChatFloatingBtn *floationBtn;
 
     if (CGPointEqualToPoint(_lastPointByWindow, currentPoint)) {
         // 判断为手机点击事件
+        NSLog(@"触发点击");
         return;
     }
     
-    // 里两场的距离
+    NSLog(@"移动");
+    
+    // 四分之一圆隐藏
+    [UIView animateWithDuration:0.2f animations:^{
+        // 判断 floatingBtn 有没有进入 semiCircleView 范围内
+        // 两个圆心的距离 <= 两个半径之差 说明 floatingBtn 在 semiCircleView 范围内，可以移除 floatingBtn
+        CGFloat distacne = sqrt(pow([UIScreen mainScreen].bounds.size.width - self.center.x, 2) + pow([UIScreen mainScreen].bounds.size.height - self.center.y, 2));
+        if (distacne <= kCircleWidth - 30.f) {
+            [self removeFromSuperview];
+        }
+        semiCircleView.frame = CGRectMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height, kCircleWidth, kCircleWidth);
+    }];
+    
+    // 离两边的距离
     CGFloat leftMargin = self.center.x;
     CGFloat rightMargin = [UIScreen mainScreen].bounds.size.width - leftMargin;
     if (leftMargin < rightMargin) {
