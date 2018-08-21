@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface CBAnimator : NSObject
+@interface CBAnimator : NSObject <UIViewControllerAnimatedTransitioning>
+
+@property (nonatomic, assign) CGRect curFrame;
 
 @end

@@ -63,7 +63,7 @@
         <!--第二级页面标题-->
         <scene sceneID="53z-RJ-URL">
             <objects>
-                <viewController id="f3y-nj-iJd" customClass="CBNextVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CBNextVC" id="f3y-nj-iJd" customClass="CBNextVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cFL-Jx-kRK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -80,7 +80,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="PQB-eg-qmW"/>
                     </view>
-                    <navigationItem key="navigationItem" title="第二级页面标题" id="aU2-ye-O9H"/>
+                    <navigationItem key="navigationItem" title="第二级页面标题" id="aU2-ye-O9H">
+                        <barButtonItem key="backBarButtonItem" title="返回" id="f92-Go-XtY"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qtc-S9-QVE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

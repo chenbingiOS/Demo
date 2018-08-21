@@ -16,6 +16,7 @@
 		07B47DE1212B9650002CB1AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B47DE0212B9650002CB1AE /* main.m */; };
 		07B47DEA212B98DE002CB1AE /* CBNextVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B47DE9212B98DE002CB1AE /* CBNextVC.m */; };
 		07B47DED212B9904002CB1AE /* CBWeChatFloatingBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B47DEC212B9903002CB1AE /* CBWeChatFloatingBtn.m */; };
+		544FD645212C0C3F00F205AF /* CBAnimationImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 544FD644212C0C3F00F205AF /* CBAnimationImageView.m */; };
 		545371AC212BE45000054B56 /* CBSemiCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 545371AB212BE45000054B56 /* CBSemiCircleView.m */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,8 @@
 		07B47DE9212B98DE002CB1AE /* CBNextVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBNextVC.m; sourceTree = "<group>"; };
 		07B47DEB212B9903002CB1AE /* CBWeChatFloatingBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBWeChatFloatingBtn.h; sourceTree = "<group>"; };
 		07B47DEC212B9903002CB1AE /* CBWeChatFloatingBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBWeChatFloatingBtn.m; sourceTree = "<group>"; };
+		544FD643212C0C3F00F205AF /* CBAnimationImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBAnimationImageView.h; sourceTree = "<group>"; };
+		544FD644212C0C3F00F205AF /* CBAnimationImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBAnimationImageView.m; sourceTree = "<group>"; };
 		545371AA212BE45000054B56 /* CBSemiCircleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBSemiCircleView.h; sourceTree = "<group>"; };
 		545371AB212BE45000054B56 /* CBSemiCircleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBSemiCircleView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,6 +98,8 @@
 				545371AB212BE45000054B56 /* CBSemiCircleView.m */,
 				0719D9C8212C068500B8ECBB /* CBAnimator.h */,
 				0719D9C9212C068500B8ECBB /* CBAnimator.m */,
+				544FD643212C0C3F00F205AF /* CBAnimationImageView.h */,
+				544FD644212C0C3F00F205AF /* CBAnimationImageView.m */,
 			);
 			path = WeChatFloatingView;
 			sourceTree = "<group>";
@@ -174,6 +179,7 @@
 				07B47DD6212B964F002CB1AE /* ViewController.m in Sources */,
 				07B47DED212B9904002CB1AE /* CBWeChatFloatingBtn.m in Sources */,
 				07B47DE1212B9650002CB1AE /* main.m in Sources */,
+				544FD645212C0C3F00F205AF /* CBAnimationImageView.m in Sources */,
 				545371AC212BE45000054B56 /* CBSemiCircleView.m in Sources */,
 				07B47DEA212B98DE002CB1AE /* CBNextVC.m in Sources */,
 				07B47DD3212B964F002CB1AE /* AppDelegate.m in Sources */,

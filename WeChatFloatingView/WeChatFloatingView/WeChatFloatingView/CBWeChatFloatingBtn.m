@@ -9,12 +9,13 @@
 #import "CBWeChatFloatingBtn.h"
 #import "CBSemiCircleView.h"
 #import "CBNextVC.h"
+#import "CBAnimator.h"
 
-#define kCircleWidth 150
+#define kCircleWidth 160.f
 
-@interface CBWeChatFloatingBtn () {
-    CGPoint _lastPointByWindow;
-    CGPoint _pointBySelf;
+@interface CBWeChatFloatingBtn () <UINavigationControllerDelegate> {
+    CGPoint lastPointByWindow;
+    CGPoint pointBySelf;
 }
 
 @end
@@ -56,9 +57,9 @@ static CBSemiCircleView *semiCircleView;
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [touches anyObject];
     // 相对于父视图 Window
-    _lastPointByWindow = [touch locationInView:self.superview];
+    lastPointByWindow = [touch locationInView:self.superview];
     // 相对于自身容器
-    _pointBySelf = [touch locationInView:self];
+    pointBySelf = [touch locationInView:self];
 }
 
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -74,8 +75,8 @@ static CBSemiCircleView *semiCircleView;
     }
     
     // 计算 floatingBtn 的 center 坐标
-    CGFloat centerX = currentPoint.x + (self.frame.size.width/2 - _pointBySelf.x);
-    CGFloat centerY = currentPoint.y + (self.frame.size.width/2 - _pointBySelf.y);
+    CGFloat centerX = currentPoint.x + (self.frame.size.width/2 - pointBySelf.x);
+    CGFloat centerY = currentPoint.y + (self.frame.size.width/2 - pointBySelf.y);
     // 限制 center的左边范围值在屏幕内部
     // 30.f <= x <= [UIScreen maniScreen].bounds.size.width - 30.f
     // 30.f <= x <= [UIScreen maniScreen].bounds.size.height - 30.f
@@ -88,14 +89,17 @@ static CBSemiCircleView *semiCircleView;
     UITouch *touch = [touches anyObject];
     CGPoint currentPoint = [touch locationInView:self.superview];
 
-    if (CGPointEqualToPoint(_lastPointByWindow, currentPoint)) {
+    if (CGPointEqualToPoint(lastPointByWindow, currentPoint)) {
         // 判断为手机点击事件
         NSLog(@"触发点击");
         UINavigationController *navc = (UINavigationController *)[UIApplication sharedApplication].keyWindow.rootViewController;
-        CBNextVC *vc = [CBNextVC new];
+        navc.delegate = self;
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        CBNextVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"CBNextVC"];
         [navc pushViewController:vc animated:YES];
     }
     
+    NSLog(@"移动");
     // 四分之一圆隐藏
     if (CGRectEqualToRect(CGRectMake([UIScreen mainScreen].bounds.size.width - kCircleWidth, [UIScreen mainScreen].bounds.size.height - kCircleWidth, kCircleWidth, kCircleWidth), semiCircleView.frame)) {
         [UIView animateWithDuration:0.2f animations:^{
@@ -120,8 +124,21 @@ static CBSemiCircleView *semiCircleView;
         [UIView animateWithDuration:0.2f animations:^{
             self.center = CGPointMake([UIScreen mainScreen].bounds.size.width - 40.f, self.center.y);
         }];
-    
     }
+}
+
+#pragma mark - UINavigationControllerDelegate
+- (nullable id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+                                            animationControllerForOperation:(UINavigationControllerOperation)operation
+                                                         fromViewController:(UIViewController *)fromVC
+                                                           toViewController:(UIViewController *)toVC {
+    if (operation == UINavigationControllerOperationPush) {
+        CBAnimator *animator = [CBAnimator new];
+        animator.curFrame = self.frame;
+        return animator;
+    }
+    
+    return nil;
 }
 
 @end
