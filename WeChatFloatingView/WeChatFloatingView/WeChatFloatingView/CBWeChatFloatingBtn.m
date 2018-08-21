@@ -93,7 +93,7 @@ static CBSemiCircleView *semiCircleView;
         // 判断为手机点击事件
         NSLog(@"触发点击");
         UINavigationController *navc = (UINavigationController *)[UIApplication sharedApplication].keyWindow.rootViewController;
-        navc.delegate = self;
+        navc.delegate = self;   /// 添加代理，拦截为自定义转场动画
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
         CBNextVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"CBNextVC"];
         [navc pushViewController:vc animated:YES];
@@ -133,6 +133,7 @@ static CBSemiCircleView *semiCircleView;
                                                          fromViewController:(UIViewController *)fromVC
                                                            toViewController:(UIViewController *)toVC {
     if (operation == UINavigationControllerOperationPush) {
+        // 拦截使用自定义转场动画
         CBAnimator *animator = [CBAnimator new];
         animator.curFrame = self.frame;
         return animator;

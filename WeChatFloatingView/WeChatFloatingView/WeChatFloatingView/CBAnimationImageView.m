@@ -24,6 +24,7 @@
     shaperLayer.path = [UIBezierPath bezierPathWithRoundedRect:fromRect cornerRadius:30.f].CGPath;
     self.layer.mask = shaperLayer;
     
+    // 执行动画
     CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"path"];
     anim.toValue = (__bridge id)[UIBezierPath bezierPathWithRoundedRect:toRect cornerRadius:30.f].CGPath;
     anim.duration = 0.5f;
