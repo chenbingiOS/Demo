@@ -8,6 +8,7 @@
 
 #import "CBWeChatFloatingBtn.h"
 #import "CBSemiCircleView.h"
+#import "CBNextVC.h"
 
 #define kCircleWidth 150
 
@@ -30,6 +31,7 @@ static CBSemiCircleView *semiCircleView;
         semiCircleView = [[CBSemiCircleView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height, kCircleWidth, kCircleWidth)];
         semiCircleView.backgroundColor = [UIColor redColor];
     });
+    floationBtn.frame = CGRectMake(10.f, 100.f, 60.f, 60.f);
     
     // 显示在最顶层
     if (!semiCircleView.superview) {
@@ -89,7 +91,9 @@ static CBSemiCircleView *semiCircleView;
     if (CGPointEqualToPoint(_lastPointByWindow, currentPoint)) {
         // 判断为手机点击事件
         NSLog(@"触发点击");
-        return;
+        UINavigationController *navc = (UINavigationController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+        CBNextVC *vc = [CBNextVC new];
+        [navc pushViewController:vc animated:YES];
     }
     
     NSLog(@"移动");

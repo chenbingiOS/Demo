@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0719D9CA212C068500B8ECBB /* CBAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0719D9C9212C068500B8ECBB /* CBAnimator.m */; };
 		07B47DD3212B964F002CB1AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B47DD2212B964F002CB1AE /* AppDelegate.m */; };
 		07B47DD6212B964F002CB1AE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B47DD5212B964F002CB1AE /* ViewController.m */; };
 		07B47DD9212B964F002CB1AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07B47DD7212B964F002CB1AE /* Main.storyboard */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0719D9C8212C068500B8ECBB /* CBAnimator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBAnimator.h; sourceTree = "<group>"; };
+		0719D9C9212C068500B8ECBB /* CBAnimator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBAnimator.m; sourceTree = "<group>"; };
 		07B47DCE212B964F002CB1AE /* WeChatFloatingView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeChatFloatingView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07B47DD1212B964F002CB1AE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		07B47DD2212B964F002CB1AE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -90,6 +93,8 @@
 				07B47DEC212B9903002CB1AE /* CBWeChatFloatingBtn.m */,
 				545371AA212BE45000054B56 /* CBSemiCircleView.h */,
 				545371AB212BE45000054B56 /* CBSemiCircleView.m */,
+				0719D9C8212C068500B8ECBB /* CBAnimator.h */,
+				0719D9C9212C068500B8ECBB /* CBAnimator.m */,
 			);
 			path = WeChatFloatingView;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0719D9CA212C068500B8ECBB /* CBAnimator.m in Sources */,
 				07B47DD6212B964F002CB1AE /* ViewController.m in Sources */,
 				07B47DED212B9904002CB1AE /* CBWeChatFloatingBtn.m in Sources */,
 				07B47DE1212B9650002CB1AE /* main.m in Sources */,
