@@ -96,18 +96,18 @@ static CBSemiCircleView *semiCircleView;
         [navc pushViewController:vc animated:YES];
     }
     
-    NSLog(@"移动");
-    
     // 四分之一圆隐藏
-    [UIView animateWithDuration:0.2f animations:^{
-        // 判断 floatingBtn 有没有进入 semiCircleView 范围内
-        // 两个圆心的距离 <= 两个半径之差 说明 floatingBtn 在 semiCircleView 范围内，可以移除 floatingBtn
-        CGFloat distacne = sqrt(pow([UIScreen mainScreen].bounds.size.width - self.center.x, 2) + pow([UIScreen mainScreen].bounds.size.height - self.center.y, 2));
-        if (distacne <= kCircleWidth - 30.f) {
-            [self removeFromSuperview];
-        }
-        semiCircleView.frame = CGRectMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height, kCircleWidth, kCircleWidth);
-    }];
+    if (CGRectEqualToRect(CGRectMake([UIScreen mainScreen].bounds.size.width - kCircleWidth, [UIScreen mainScreen].bounds.size.height - kCircleWidth, kCircleWidth, kCircleWidth), semiCircleView.frame)) {
+        [UIView animateWithDuration:0.2f animations:^{
+            // 判断 floatingBtn 有没有进入 semiCircleView 范围内
+            // 两个圆心的距离 <= 两个半径之差 说明 floatingBtn 在 semiCircleView 范围内，可以移除 floatingBtn
+            CGFloat distacne = sqrt(pow([UIScreen mainScreen].bounds.size.width - self.center.x, 2) + pow([UIScreen mainScreen].bounds.size.height - self.center.y, 2));
+            if (distacne <= kCircleWidth - 30.f) {
+                [self removeFromSuperview];
+            }
+            semiCircleView.frame = CGRectMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height, kCircleWidth, kCircleWidth);
+        }];
+    }
     
     // 离两边的距离
     CGFloat leftMargin = self.center.x;
