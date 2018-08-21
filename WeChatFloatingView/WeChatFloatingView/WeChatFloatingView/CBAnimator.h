@@ -11,6 +11,8 @@
 
 @interface CBAnimator : NSObject <UIViewControllerAnimatedTransitioning>
 
-@property (nonatomic, assign) CGRect curFrame;
+@property (nonatomic, assign) CGPoint curPoint;
+@property (nonatomic, assign) UINavigationControllerOperation operation;
+@property (nonatomic, assign) BOOL isInteractive;
 
 @end

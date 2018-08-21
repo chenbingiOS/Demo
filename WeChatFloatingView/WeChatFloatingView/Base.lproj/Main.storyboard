@@ -13,6 +13,7 @@
         <!--第一级页面标题-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -49,18 +50,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="第一级页面标题" id="wQU-Vf-e7c"/>
+                    <navigationItem key="navigationItem" title="第一级页面标题" id="wQU-Vf-e7c">
+                        <barButtonItem key="backBarButtonItem" title="返回" id="qQc-oa-BlP"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="ZAQ-Rg-kBN" id="2Nq-BB-u4a"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="519" y="34"/>
         </scene>
         <!--第二级页面标题-->
         <scene sceneID="53z-RJ-URL">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qtc-S9-QVE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="CBNextVC" id="f3y-nj-iJd" customClass="CBNextVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cFL-Jx-kRK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -78,18 +81,44 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="PQB-eg-qmW"/>
                     </view>
-                    <navigationItem key="navigationItem" title="第二级页面标题" id="aU2-ye-O9H"/>
+                    <navigationItem key="navigationItem" title="第二级页面标题" id="aU2-ye-O9H">
+                        <barButtonItem key="backBarButtonItem" title="返回" id="gSt-7a-si9"/>
+                    </navigationItem>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qtc-S9-QVE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1244" y="34"/>
+        </scene>
+        <!--Show FloatingVC-->
+        <scene sceneID="uGX-KT-QqK">
+            <objects>
+                <viewController storyboardIdentifier="CBShowFloatingVC" id="axk-y8-zAe" customClass="CBShowFloatingVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Thp-rd-3UK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我是第三级页面" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kiX-f9-A5Y">
+                                <rect key="frame" x="126" y="323" width="122" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="5hG-k9-qBX"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BDh-pK-tJ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1980" y="34"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ogH-gv-Ug9">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2kP-2q-efE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MtT-if-LoE" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PTo-M8-UZX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PTo-M8-UZX">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -98,7 +127,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="gUz-d6-nlu"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2kP-2q-efE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-182" y="34"/>
         </scene>

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0719D9CA212C068500B8ECBB /* CBAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0719D9C9212C068500B8ECBB /* CBAnimator.m */; };
+		0758BE5B212C307200B111FA /* CBShowFloatingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0758BE5A212C307200B111FA /* CBShowFloatingVC.m */; };
+		0758BE5E212C340100B111FA /* CBInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 0758BE5D212C340100B111FA /* CBInteractiveTransition.m */; };
 		07B47DD3212B964F002CB1AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B47DD2212B964F002CB1AE /* AppDelegate.m */; };
 		07B47DD6212B964F002CB1AE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B47DD5212B964F002CB1AE /* ViewController.m */; };
 		07B47DD9212B964F002CB1AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07B47DD7212B964F002CB1AE /* Main.storyboard */; };
@@ -23,6 +25,10 @@
 /* Begin PBXFileReference section */
 		0719D9C8212C068500B8ECBB /* CBAnimator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBAnimator.h; sourceTree = "<group>"; };
 		0719D9C9212C068500B8ECBB /* CBAnimator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBAnimator.m; sourceTree = "<group>"; };
+		0758BE59212C307200B111FA /* CBShowFloatingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBShowFloatingVC.h; sourceTree = "<group>"; };
+		0758BE5A212C307200B111FA /* CBShowFloatingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBShowFloatingVC.m; sourceTree = "<group>"; };
+		0758BE5C212C340100B111FA /* CBInteractiveTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBInteractiveTransition.h; sourceTree = "<group>"; };
+		0758BE5D212C340100B111FA /* CBInteractiveTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBInteractiveTransition.m; sourceTree = "<group>"; };
 		07B47DCE212B964F002CB1AE /* WeChatFloatingView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeChatFloatingView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07B47DD1212B964F002CB1AE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		07B47DD2212B964F002CB1AE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -79,6 +85,8 @@
 				07B47DD5212B964F002CB1AE /* ViewController.m */,
 				07B47DE8212B98DE002CB1AE /* CBNextVC.h */,
 				07B47DE9212B98DE002CB1AE /* CBNextVC.m */,
+				0758BE59212C307200B111FA /* CBShowFloatingVC.h */,
+				0758BE5A212C307200B111FA /* CBShowFloatingVC.m */,
 				07B47DE7212B971E002CB1AE /* WeChatFloatingView */,
 				07B47DD7212B964F002CB1AE /* Main.storyboard */,
 				07B47DDA212B9650002CB1AE /* Assets.xcassets */,
@@ -100,6 +108,8 @@
 				0719D9C9212C068500B8ECBB /* CBAnimator.m */,
 				544FD643212C0C3F00F205AF /* CBAnimationImageView.h */,
 				544FD644212C0C3F00F205AF /* CBAnimationImageView.m */,
+				0758BE5C212C340100B111FA /* CBInteractiveTransition.h */,
+				0758BE5D212C340100B111FA /* CBInteractiveTransition.m */,
 			);
 			path = WeChatFloatingView;
 			sourceTree = "<group>";
@@ -179,8 +189,10 @@
 				07B47DD6212B964F002CB1AE /* ViewController.m in Sources */,
 				07B47DED212B9904002CB1AE /* CBWeChatFloatingBtn.m in Sources */,
 				07B47DE1212B9650002CB1AE /* main.m in Sources */,
+				0758BE5E212C340100B111FA /* CBInteractiveTransition.m in Sources */,
 				544FD645212C0C3F00F205AF /* CBAnimationImageView.m in Sources */,
 				545371AC212BE45000054B56 /* CBSemiCircleView.m in Sources */,
+				0758BE5B212C307200B111FA /* CBShowFloatingVC.m in Sources */,
 				07B47DEA212B98DE002CB1AE /* CBNextVC.m in Sources */,
 				07B47DD3212B964F002CB1AE /* AppDelegate.m in Sources */,
 			);
