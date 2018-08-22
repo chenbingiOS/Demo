@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "FirstViewController.h"
+#import "CBWeChatFloatingManager.h"
 
 @interface AppDelegate ()
 
@@ -26,6 +27,8 @@
     naviController.navigationBar.barStyle = UIBarStyleBlack;
     self.window.rootViewController = naviController;
     [self.window makeKeyAndVisible];
+    
+    [[CBWeChatFloatingManager sharedManager] addShowFloatingVCClass:@[@"SecondViewController"]];
     
     return YES;
 }

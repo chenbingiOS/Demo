@@ -25,6 +25,7 @@
 		07B47DED212B9904002CB1AE /* CBWeChatFloatingBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B47DEC212B9903002CB1AE /* CBWeChatFloatingBtn.m */; };
 		544FD645212C0C3F00F205AF /* CBAnimationImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 544FD644212C0C3F00F205AF /* CBAnimationImageView.m */; };
 		545371AC212BE45000054B56 /* CBSemiCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 545371AB212BE45000054B56 /* CBSemiCircleView.m */; };
+		5485BF7A212D446D00F94CF0 /* CBWeChatFloatingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5485BF79212D446D00F94CF0 /* CBWeChatFloatingManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,8 @@
 		544FD644212C0C3F00F205AF /* CBAnimationImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBAnimationImageView.m; sourceTree = "<group>"; };
 		545371AA212BE45000054B56 /* CBSemiCircleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBSemiCircleView.h; sourceTree = "<group>"; };
 		545371AB212BE45000054B56 /* CBSemiCircleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBSemiCircleView.m; sourceTree = "<group>"; };
+		5485BF78212D446D00F94CF0 /* CBWeChatFloatingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBWeChatFloatingManager.h; sourceTree = "<group>"; };
+		5485BF79212D446D00F94CF0 /* CBWeChatFloatingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBWeChatFloatingManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +132,8 @@
 		07B47DE7212B971E002CB1AE /* WeChatFloatingView */ = {
 			isa = PBXGroup;
 			children = (
+				5485BF78212D446D00F94CF0 /* CBWeChatFloatingManager.h */,
+				5485BF79212D446D00F94CF0 /* CBWeChatFloatingManager.m */,
 				07B47DEB212B9903002CB1AE /* CBWeChatFloatingBtn.h */,
 				07B47DEC212B9903002CB1AE /* CBWeChatFloatingBtn.m */,
 				545371AA212BE45000054B56 /* CBSemiCircleView.h */,
@@ -228,6 +233,7 @@
 				545371AC212BE45000054B56 /* CBSemiCircleView.m in Sources */,
 				0758BE5B212C307200B111FA /* CBShowFloatingVC.m in Sources */,
 				07B47DEA212B98DE002CB1AE /* CBNextVC.m in Sources */,
+				5485BF7A212D446D00F94CF0 /* CBWeChatFloatingManager.m in Sources */,
 				07B47DD3212B964F002CB1AE /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

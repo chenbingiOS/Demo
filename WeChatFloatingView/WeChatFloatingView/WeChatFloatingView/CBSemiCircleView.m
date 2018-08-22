@@ -8,7 +8,9 @@
 
 #import "CBSemiCircleView.h"
 
-@interface CBSemiCircleView ()
+@interface CBSemiCircleView () {
+    SemiCircleViewType type;
+}
 
 @property (nonatomic, strong) CAShapeLayer *semiLayer;
 @property (nonatomic, strong) UIImageView *imageView;
@@ -18,9 +20,10 @@
 
 @implementation CBSemiCircleView
 
-- (instancetype)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame semiCircleViewType:(SemiCircleViewType)semiCircleViewType {
     self = [super initWithFrame:frame];
     if (self) {
+        type = semiCircleViewType;
         [self.layer addSublayer:self.semiLayer];
         [self.layer addSublayer:self.imageView.layer];
         [self.layer addSublayer:self.textLabel.layer];
@@ -37,7 +40,11 @@
         [path closePath];
         
         _semiLayer.path = path.CGPath;
-        _semiLayer.fillColor = [UIColor colorWithRed:206/255.0 green:85/255.0 blue:85/255.0 alpha:1].CGColor;
+        if (type == SemiCircleViewTypeDefault) {
+            _semiLayer.fillColor = [UIColor colorWithRed:0.3 green:0.3 blue:0.3 alpha:0.8].CGColor;
+        } else if (type == SemiCircleViewTypeCancel) {
+            _semiLayer.fillColor = [UIColor colorWithRed:206/255.0 green:85/255.0 blue:85/255.0 alpha:1].CGColor;
+        }
     }
     return _semiLayer;
 }
@@ -56,8 +63,12 @@
     if (!_textLabel) {
         _textLabel = [[UILabel alloc]initWithFrame:CGRectMake(_imageView.frame.origin.x, CGRectGetMaxY(_imageView.frame), _imageView.frame.size.width, 20)];
         _textLabel.font = [UIFont systemFontOfSize:12];
-        _textLabel.text = @"取消浮窗";
         _textLabel.textColor = [UIColor colorWithRed:234.f/255.0 green:160.f/255.0 blue:160.f/255.0 alpha:1];
+        if (type == SemiCircleViewTypeDefault) {
+            _textLabel.text = @"浮窗";
+        } else if (type == SemiCircleViewTypeCancel) {
+            _textLabel.text = @"取消浮窗";
+        }
     }
     return _textLabel;
 }

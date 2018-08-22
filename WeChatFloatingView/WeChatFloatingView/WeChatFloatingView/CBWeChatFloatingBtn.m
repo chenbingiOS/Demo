@@ -40,12 +40,20 @@ static CBSemiCircleView *semiCircleView;
         NSLog(@"展示浮窗只能显示 UINavigationController 管理的视图控制器上");
         return;
     }
-    
+    if (floatingBtn && floatingBtn.isShowing) {
+        if (vc == floatingBtn.containerVC) {
+            NSLog(@"当前控制器的浮窗已经添加");
+            return;
+        }
+        NSLog(@"正在展示一个浮窗 -> 视图：%@", floatingBtn.containerVC);
+        floatingBtn.containerVC = nil;
+    }
+
     // 全局初始化一次
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        floatingBtn = [[CBWeChatFloatingBtn alloc] initWithFrame:CGRectMake(kleftSpace, 100.f, 60.f, 60.f)];
-        semiCircleView = [[CBSemiCircleView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height, kfixSpace, kfixSpace)];
+        floatingBtn = [[CBWeChatFloatingBtn alloc] initWithFrame:CGRectMake(kleftSpace, [UIScreen mainScreen].bounds.size.height/2-30.f, 60.f, 60.f)];
+        semiCircleView = [[CBSemiCircleView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height, kfixSpace, kfixSpace) semiCircleViewType:SemiCircleViewTypeCancel];
     });
     
     // 显示在最顶层，两者顺序不能颠倒
@@ -66,7 +74,11 @@ static CBSemiCircleView *semiCircleView;
 }
 
 + (void)remove {
+    UINavigationController *navc = floatingBtn.containerVC.navigationController;
+    navc.delegate = nil;
+    floatingBtn.containerVC = nil;
     [floatingBtn removeForWindow];
+    floatingBtn.frame = CGRectMake(kleftSpace, [UIScreen mainScreen].bounds.size.height/2-30.f, 60.f, 60.f);
 }
 
 + (BOOL)isShowingWithViewController:(UIViewController *)vc {

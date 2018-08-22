@@ -64,7 +64,7 @@
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:@"关闭视图移除浮窗" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         NSLog(@"关闭视图移除浮窗");
-        //        [XWFloatingWindowView remove];
+        [CBWeChatFloatingBtn remove];
         [self.navigationController popViewControllerAnimated:YES];
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {

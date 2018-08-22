@@ -9,6 +9,7 @@
 #import "FirstViewController.h"
 #import "SecondViewController.h"
 #import "ThirdViewController.h"
+#import "CBWeChatFloatingManager.h"
 
 @interface FirstViewController ()
 @end
