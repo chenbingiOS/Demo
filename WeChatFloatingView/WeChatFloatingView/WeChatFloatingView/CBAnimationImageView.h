@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+// 转场
 @interface CBAnimationImageView : UIImageView
 
 - (void)startAnimateWithView:(UIView *)theView fromRect:(CGRect)fromRect toRect:(CGRect)toRect;

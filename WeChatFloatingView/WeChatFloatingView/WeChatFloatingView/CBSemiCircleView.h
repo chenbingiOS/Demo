@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+// 四分之一圆
 @interface CBSemiCircleView : UIView
 
 @end

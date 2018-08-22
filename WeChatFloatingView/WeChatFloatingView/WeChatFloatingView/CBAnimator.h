@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+// 转场动画工具类
 @interface CBAnimator : NSObject <UIViewControllerAnimatedTransitioning>
 
 @property (nonatomic, assign) CGPoint curPoint;

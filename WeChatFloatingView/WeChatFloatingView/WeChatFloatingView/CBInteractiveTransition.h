@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+// 侧滑手势拦截，到1/2做判断
 @interface CBInteractiveTransition : UIPercentDrivenInteractiveTransition
 
 @property (nonatomic, assign) BOOL isInteractive;
