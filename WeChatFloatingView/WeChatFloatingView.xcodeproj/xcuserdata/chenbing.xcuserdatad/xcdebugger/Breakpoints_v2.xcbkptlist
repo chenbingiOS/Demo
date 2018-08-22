@@ -6,64 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WeChatFloatingView/CBShowFloatingVC.m"
-            timestampString = "556549229.4789881"
+            filePath = "WeChatFloatingView/WeChatFloatingView/CBWeChatFloatingBtn.m"
+            timestampString = "556639158.219328"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "-viewWillAppear:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeChatFloatingView/WeChatFloatingView/CBInteractiveTransition.m"
-            timestampString = "556549229.479059"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "-actionPanGesture:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeChatFloatingView/WeChatFloatingView/CBInteractiveTransition.m"
-            timestampString = "556549229.479109"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "-actionPanGesture:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeChatFloatingView/WeChatFloatingView/CBInteractiveTransition.m"
-            timestampString = "556549229.479154"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "-actionPanGesture:"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "-touchesMoved:withEvent:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -73,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WeChatFloatingView/WeChatFloatingView/CBAnimator.m"
-            timestampString = "556549229.4792"
+            filePath = "WeChatFloatingView/WeChatFloatingView/CBWeChatFloatingBtn.m"
+            timestampString = "556639158.219615"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "-animateTransition:"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "-touchesMoved:withEvent:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -89,125 +41,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WeChatFloatingView/WeChatFloatingView/CBAnimator.m"
-            timestampString = "556549229.47952"
+            filePath = "WeChatFloatingView/WeChatFloatingView/CBWeChatFloatingManager.m"
+            timestampString = "556639158.219676"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "-animateTransition:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeChatFloatingView/WeChatFloatingView/CBAnimator.m"
-            timestampString = "556549229.479737"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
-            landmarkName = "-animateTransition:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeChatFloatingView/WeChatFloatingView/CBAnimator.m"
-            timestampString = "556549229.4799449"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
-            landmarkName = "-animateTransition:"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
+            landmarkName = "-displayLinkActionEdgePan:"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[CBAnimator animateTransition:]"
+                  symbolName = "-[CBWeChatFloatingManager displayLinkActionEdgePan:]"
                   moduleName = "WeChatFloatingView"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/chenbing/Desktop/Demo/WeChatFloatingView/WeChatFloatingView/WeChatFloatingView/CBAnimator.m"
-                  timestampString = "556549118.865388"
+                  urlString = "file:///Users/chenbing/Desktop/Demo/WeChatFloatingView/WeChatFloatingView/WeChatFloatingView/CBWeChatFloatingManager.m"
+                  timestampString = "556639158.27213"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58"
-                  offsetFromSymbolStart = "1308">
+                  startingLineNumber = "170"
+                  endingLineNumber = "170"
+                  offsetFromSymbolStart = "3000">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__32-[CBAnimator animateTransition:]_block_invoke.37"
+                  symbolName = "-[CBWeChatFloatingManager displayLinkActionEdgePan:]"
                   moduleName = "WeChatFloatingView"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/chenbing/Desktop/Demo/WeChatFloatingView/WeChatFloatingView/WeChatFloatingView/CBAnimator.m"
-                  timestampString = "556549118.8671319"
+                  urlString = "file:///Users/chenbing/Desktop/Demo/WeChatFloatingView/WeChatFloatingView/WeChatFloatingView/CBWeChatFloatingManager.m"
+                  timestampString = "556639158.273998"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "59"
-                  endingLineNumber = "59"
-                  offsetFromSymbolStart = "20">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.44"
-                  moduleName = "WeChatFloatingView"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/chenbing/Desktop/Demo/WeChatFloatingView/WeChatFloatingView/WeChatFloatingView/CBAnimator.m"
-                  timestampString = "556549118.868855"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58"
-                  offsetFromSymbolStart = "20">
+                  startingLineNumber = "170"
+                  endingLineNumber = "170"
+                  offsetFromSymbolStart = "3016">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeChatFloatingView/WeChatFloatingView/CBWeChatFloatingBtn.m"
-            timestampString = "556549229.4801511"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
-            landmarkName = "-navigationController:animationControllerForOperation:fromViewController:toViewController:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WeChatFloatingView/WeChatFloatingView/CBWeChatFloatingBtn.m"
-            timestampString = "556549229.480215"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
-            landmarkName = "-navigationController:interactionControllerForAnimationController:"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

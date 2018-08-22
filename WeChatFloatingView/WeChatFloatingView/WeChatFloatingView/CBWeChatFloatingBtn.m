@@ -9,19 +9,15 @@
 #import "CBWeChatFloatingBtn.h"
 #import "CBSemiCircleView.h"
 #import "CBShowFloatingVC.h"
-#import "CBAnimator.h"
-#import "CBInteractiveTransition.h"
 
 @interface CBWeChatFloatingBtn () <UINavigationControllerDelegate> {
     CGPoint lastPointByWindow;
     CGPoint lastPointBySelf;
-    ;
 }
 
 @property (nonatomic, strong) UIViewController *containerVC;
 @property (nonatomic, assign) BOOL isShowing;
-@property (nonatomic, strong) CBAnimator *animator;
-@property (nonatomic, strong) CBInteractiveTransition *interactiveTransition;
+@property (nonatomic, strong) CBSemiCircleView *semiCircleView; /// <关闭浮窗
 
 @end
 
@@ -30,16 +26,25 @@
 #define kfixSpace 160.f
 #define kleftSpace 15.f
 static CBWeChatFloatingBtn *floatingBtn;
-static CBSemiCircleView *semiCircleView;
 
 #pragma mark - Public
-+ (void)showWithViewController:(UIViewController *)vc {
+- (void)cshowWithViewController:(UIViewController *)vc {
     // 展示前判断
     UINavigationController *navc = vc.navigationController;
     if (!navc) {
         NSLog(@"展示浮窗只能显示 UINavigationController 管理的视图控制器上");
         return;
     }
+    [navc popViewControllerAnimated:YES];
+}
+
++ (void)showWithViewController:(UIViewController *)vc {
+    // 展示前判断
+//    UINavigationController *navc = vc.navigationController;
+//    if (!navc) {
+//        NSLog(@"展示浮窗只能显示 UINavigationController 管理的视图控制器上");
+//        return;
+//    }
     if (floatingBtn && floatingBtn.isShowing) {
         if (vc == floatingBtn.containerVC) {
             NSLog(@"当前控制器的浮窗已经添加");
@@ -49,28 +54,28 @@ static CBSemiCircleView *semiCircleView;
         floatingBtn.containerVC = nil;
     }
 
-    // 全局初始化一次
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        floatingBtn = [[CBWeChatFloatingBtn alloc] initWithFrame:CGRectMake(kleftSpace, [UIScreen mainScreen].bounds.size.height/2-30.f, 60.f, 60.f)];
-        semiCircleView = [[CBSemiCircleView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height, kfixSpace, kfixSpace) semiCircleViewType:SemiCircleViewTypeCancel];
-    });
+//    // 全局初始化一次
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//
+//        ;
+//    });
     
-    // 显示在最顶层，两者顺序不能颠倒
-    if (!semiCircleView.superview) {
-        [[UIApplication sharedApplication].keyWindow addSubview:semiCircleView];
-        [[UIApplication sharedApplication].keyWindow bringSubviewToFront:semiCircleView];
-    }
-    if (!floatingBtn.superview) {
-        [[UIApplication sharedApplication].keyWindow addSubview:floatingBtn];
-        [[UIApplication sharedApplication].keyWindow bringSubviewToFront:floatingBtn];
-    }
+//    // 显示在最顶层，两者顺序不能颠倒
+//    if (!semiCircleView.superview) {
+//        [[UIApplication sharedApplication].keyWindow addSubview:semiCircleView];
+//        [[UIApplication sharedApplication].keyWindow bringSubviewToFront:semiCircleView];
+//    }
+//    if (!floatingBtn.superview) {
+//        [[UIApplication sharedApplication].keyWindow addSubview:floatingBtn];
+//        [[UIApplication sharedApplication].keyWindow bringSubviewToFront:floatingBtn];
+//    }
     
     floatingBtn.containerVC = vc;
     floatingBtn.isShowing = YES;
     
-    navc.delegate = floatingBtn;
-    [navc popViewControllerAnimated:YES];
+//    navc.delegate = floatingBtn;
+//    [navc popViewControllerAnimated:YES];
 }
 
 + (void)remove {
@@ -102,6 +107,16 @@ static CBSemiCircleView *semiCircleView;
         self.backgroundColor = [UIColor clearColor];
         // 浮窗按钮背景图片
         self.layer.contents = (__bridge id)[UIImage imageNamed:@"FloatBtn"].CGImage;
+        
+        // 显示在最顶层，两者顺序不能颠倒
+        if (!self.semiCircleView.superview) {
+            [[UIApplication sharedApplication].keyWindow addSubview:self.semiCircleView];
+            [[UIApplication sharedApplication].keyWindow bringSubviewToFront:self.semiCircleView];
+        }
+        if (!self.superview) {
+            [[UIApplication sharedApplication].keyWindow addSubview:self];
+            [[UIApplication sharedApplication].keyWindow bringSubviewToFront:self];
+        }
     }
     return self;
 }
@@ -126,9 +141,9 @@ static CBSemiCircleView *semiCircleView;
     if (!CGPointEqualToPoint(lastPointByWindow, currentPoint)) {
         // 四分之一圆动画展开显示，出现移动才展开
         CGRect rect = CGRectMake([UIScreen mainScreen].bounds.size.width - kfixSpace, [UIScreen mainScreen].bounds.size.height - kfixSpace, kfixSpace, kfixSpace);
-        if (!CGRectEqualToRect(semiCircleView.frame, rect)) {
+        if (!CGRectEqualToRect(self.semiCircleView.frame, rect)) {
             [UIView animateWithDuration:0.3f animations:^{
-                semiCircleView.frame = rect;
+                self.semiCircleView.frame = rect;
             }];
         }
     }
@@ -157,9 +172,9 @@ static CBSemiCircleView *semiCircleView;
     } else {
         // 四分之一圆隐藏
         CGRect rect = CGRectMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height, kfixSpace, kfixSpace);
-        if (!CGRectEqualToRect(semiCircleView.frame, rect)) {
+        if (!CGRectEqualToRect(self.semiCircleView.frame, rect)) {
             [UIView animateWithDuration:0.3f animations:^{
-                semiCircleView.frame = rect;
+                self.semiCircleView.frame = rect;
                 // 判断 floatingBtn 有没有进入 semiCircleView 范围内
                 // 两个圆心的距离 <= 两个半径之差 说明 floatingBtn 在 semiCircleView 范围内，可以移除 floatingBtn
                 CGFloat distacne = sqrt(pow([UIScreen mainScreen].bounds.size.width - self.center.x, 2) + pow([UIScreen mainScreen].bounds.size.height - self.center.y, 2));
@@ -186,51 +201,18 @@ static CBSemiCircleView *semiCircleView;
 
 // 跳转
 - (void)toContainerVC {
-    self.interactiveTransition.curPoint = self.frame.origin;
-    
-    // 判断为手机点击事件
-    UINavigationController *navc = (UINavigationController *)[UIApplication sharedApplication].keyWindow.rootViewController;
-    if (!navc) {
-        NSLog(@"展示浮窗只能显示 UINavigationController 管理的视图控制器上");
-        return;
-    }
-    navc.delegate = self;   /// 添加代理，拦截为自定义转场动画
-    [self.interactiveTransition transtionToViewController:self.containerVC];
-    [navc pushViewController:self.containerVC animated:YES];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(pushContainerVCWithWeChatFloatingBtn:)]) {
+        [self.delegate pushContainerVCWithWeChatFloatingBtn:self];
+    }    
 }
 
-- (CBAnimator *)animator {
-    if (!_animator) {
-        _animator = [CBAnimator new];
-    }
-    return _animator;
-}
 
-- (CBInteractiveTransition *)interactiveTransition {
-    if (!_interactiveTransition) {
-        _interactiveTransition = [CBInteractiveTransition new];
+#pragma mark - layz
+- (CBSemiCircleView *)semiCircleView {
+    if (!_semiCircleView) {
+        _semiCircleView = [[CBSemiCircleView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height, kfixSpace, kfixSpace) semiCircleViewType:SemiCircleViewTypeCancel];
     }
-    return _interactiveTransition;
-}
-
-#pragma mark - UINavigationControllerDelegate
-- (nullable id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
-                                            animationControllerForOperation:(UINavigationControllerOperation)operation
-                                                         fromViewController:(UIViewController *)fromVC
-                                                           toViewController:(UIViewController *)toVC {
-    if (operation == UINavigationControllerOperationPush) {
-        self.alpha = 0.f;
-    }
-    // 拦截使用自定义转场动画
-    self.animator.operation = operation;
-    self.animator.curPoint = self.frame.origin;
-    self.animator.isInteractive = self.interactiveTransition.isInteractive;
-    return self.animator;
-}
-
-- (nullable id <UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController
-                                   interactionControllerForAnimationController:(id <UIViewControllerAnimatedTransitioning>) animationController {
-    return self.interactiveTransition.isInteractive ? self.interactiveTransition : nil;
+    return _semiCircleView;
 }
 
 @end
