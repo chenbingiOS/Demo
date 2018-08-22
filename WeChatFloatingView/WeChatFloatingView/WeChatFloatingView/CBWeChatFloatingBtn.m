@@ -15,11 +15,13 @@
 @interface CBWeChatFloatingBtn () <UINavigationControllerDelegate> {
     CGPoint lastPointByWindow;
     CGPoint lastPointBySelf;
-    CBInteractiveTransition *interactiveTransition;
+    ;
 }
 
 @property (nonatomic, strong) UIViewController *containerVC;
 @property (nonatomic, assign) BOOL isShowing;
+@property (nonatomic, strong) CBAnimator *animator;
+@property (nonatomic, strong) CBInteractiveTransition *interactiveTransition;
 
 @end
 
@@ -107,7 +109,7 @@ static CBSemiCircleView *semiCircleView;
     
     UITouch *touch = [touches anyObject];
     CGPoint currentPoint = [touch locationInView:self.superview];
-
+    
     /// 判断 end 和 begin 两种状态之间是否有移动，如果移动，展开视图
     if (!CGPointEqualToPoint(lastPointByWindow, currentPoint)) {
         // 四分之一圆动画展开显示，出现移动才展开
@@ -118,7 +120,7 @@ static CBSemiCircleView *semiCircleView;
             }];
         }
     }
-
+    
     // 计算 floatingBtn 的 center 坐标
     CGFloat centerX = currentPoint.x + (self.frame.size.width/2 - lastPointBySelf.x);
     CGFloat centerY = currentPoint.y + (self.frame.size.height/2 - lastPointBySelf.y);
@@ -172,8 +174,7 @@ static CBSemiCircleView *semiCircleView;
 
 // 跳转
 - (void)toContainerVC {
-    interactiveTransition = [CBInteractiveTransition new];
-    interactiveTransition.curPoint = self.frame.origin;
+    self.interactiveTransition.curPoint = self.frame.origin;
     
     // 判断为手机点击事件
     UINavigationController *navc = (UINavigationController *)[UIApplication sharedApplication].keyWindow.rootViewController;
@@ -182,8 +183,22 @@ static CBSemiCircleView *semiCircleView;
         return;
     }
     navc.delegate = self;   /// 添加代理，拦截为自定义转场动画
-    [interactiveTransition transtionToViewController:self.containerVC];
+    [self.interactiveTransition transtionToViewController:self.containerVC];
     [navc pushViewController:self.containerVC animated:YES];
+}
+
+- (CBAnimator *)animator {
+    if (!_animator) {
+        _animator = [CBAnimator new];
+    }
+    return _animator;
+}
+
+- (CBInteractiveTransition *)interactiveTransition {
+    if (!_interactiveTransition) {
+        _interactiveTransition = [CBInteractiveTransition new];
+    }
+    return _interactiveTransition;
 }
 
 #pragma mark - UINavigationControllerDelegate
@@ -195,16 +210,15 @@ static CBSemiCircleView *semiCircleView;
         self.alpha = 0.f;
     }
     // 拦截使用自定义转场动画
-    CBAnimator *animator = [CBAnimator new];
-    animator.operation = operation;
-    animator.curPoint = self.frame.origin;
-    animator.isInteractive = interactiveTransition.isInteractive;
-    return animator;
+    self.animator.operation = operation;
+    self.animator.curPoint = self.frame.origin;
+    self.animator.isInteractive = self.interactiveTransition.isInteractive;
+    return self.animator;
 }
 
 - (nullable id <UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController
                                    interactionControllerForAnimationController:(id <UIViewControllerAnimatedTransitioning>) animationController {
-    return interactiveTransition.isInteractive ? interactiveTransition : nil;
+    return self.interactiveTransition.isInteractive ? self.interactiveTransition : nil;
 }
 
 @end

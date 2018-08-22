@@ -28,7 +28,7 @@
         [containerView addSubview:toView];
 
         CBAnimationImageView *theView = [[CBAnimationImageView alloc] initWithFrame:toView.bounds];
-        [containerView addSubview:theView];
+        [containerView addSubview:theView]; // 放在顶部实现动画转场
         // 截屏
         UIGraphicsBeginImageContext(toView.frame.size);
         [toView.layer renderInContext:UIGraphicsGetCurrentContext()];

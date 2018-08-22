@@ -71,12 +71,14 @@
                 fromRect.origin.x = transitionX;
                 fromRect.origin.y = 0.f;
                 CGRect toRect = CGRectMake(_curPoint.x, _curPoint.y, 60.f, 60.f);
-                [theView startAnimationForView:theView fromRect:fromRect toRect:toRect];
+                [theView startAnimationForView:theView fromRect:fromRect toRect:toRect completionBlock:^{
+                }];
                 
                 // 置于顶部
                 fromView.frame = CGRectZero;
                 [fromView.superview addSubview:theView];
                 
+                // 完成场景转换
                 [self finishInteractiveTransition];
                 navc.delegate = nil; //这个需要设置，而且只能在这里设置，不能在外面设置
             }
