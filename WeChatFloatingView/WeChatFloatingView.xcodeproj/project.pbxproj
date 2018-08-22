@@ -10,6 +10,9 @@
 		0719D9CA212C068500B8ECBB /* CBAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0719D9C9212C068500B8ECBB /* CBAnimator.m */; };
 		0758BE5B212C307200B111FA /* CBShowFloatingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0758BE5A212C307200B111FA /* CBShowFloatingVC.m */; };
 		0758BE5E212C340100B111FA /* CBInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 0758BE5D212C340100B111FA /* CBInteractiveTransition.m */; };
+		07B28BC5212CEE4700B64A4D /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B28BBF212CEE4600B64A4D /* ThirdViewController.m */; };
+		07B28BC6212CEE4700B64A4D /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B28BC0212CEE4600B64A4D /* FirstViewController.m */; };
+		07B28BC7212CEE4700B64A4D /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B28BC4212CEE4700B64A4D /* SecondViewController.m */; };
 		07B47DD3212B964F002CB1AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B47DD2212B964F002CB1AE /* AppDelegate.m */; };
 		07B47DD6212B964F002CB1AE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B47DD5212B964F002CB1AE /* ViewController.m */; };
 		07B47DD9212B964F002CB1AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07B47DD7212B964F002CB1AE /* Main.storyboard */; };
@@ -29,6 +32,12 @@
 		0758BE5A212C307200B111FA /* CBShowFloatingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBShowFloatingVC.m; sourceTree = "<group>"; };
 		0758BE5C212C340100B111FA /* CBInteractiveTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBInteractiveTransition.h; sourceTree = "<group>"; };
 		0758BE5D212C340100B111FA /* CBInteractiveTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBInteractiveTransition.m; sourceTree = "<group>"; };
+		07B28BBF212CEE4600B64A4D /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		07B28BC0212CEE4600B64A4D /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		07B28BC1212CEE4600B64A4D /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		07B28BC2212CEE4700B64A4D /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		07B28BC3212CEE4700B64A4D /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		07B28BC4212CEE4700B64A4D /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		07B47DCE212B964F002CB1AE /* WeChatFloatingView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeChatFloatingView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07B47DD1212B964F002CB1AE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		07B47DD2212B964F002CB1AE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -60,6 +69,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07B28BBE212CEE3600B64A4D /* Test2 */ = {
+			isa = PBXGroup;
+			children = (
+				07B28BC1212CEE4600B64A4D /* FirstViewController.h */,
+				07B28BC0212CEE4600B64A4D /* FirstViewController.m */,
+				07B28BC2212CEE4700B64A4D /* SecondViewController.h */,
+				07B28BC4212CEE4700B64A4D /* SecondViewController.m */,
+				07B28BC3212CEE4700B64A4D /* ThirdViewController.h */,
+				07B28BBF212CEE4600B64A4D /* ThirdViewController.m */,
+			);
+			path = Test2;
+			sourceTree = "<group>";
+		};
 		07B47DC5212B964F002CB1AE = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +109,7 @@
 				07B47DE9212B98DE002CB1AE /* CBNextVC.m */,
 				0758BE59212C307200B111FA /* CBShowFloatingVC.h */,
 				0758BE5A212C307200B111FA /* CBShowFloatingVC.m */,
+				07B28BBE212CEE3600B64A4D /* Test2 */,
 				07B47DE7212B971E002CB1AE /* WeChatFloatingView */,
 				07B47DD7212B964F002CB1AE /* Main.storyboard */,
 				07B47DDA212B9650002CB1AE /* Assets.xcassets */,
@@ -186,11 +209,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0719D9CA212C068500B8ECBB /* CBAnimator.m in Sources */,
+				07B28BC7212CEE4700B64A4D /* SecondViewController.m in Sources */,
 				07B47DD6212B964F002CB1AE /* ViewController.m in Sources */,
 				07B47DED212B9904002CB1AE /* CBWeChatFloatingBtn.m in Sources */,
 				07B47DE1212B9650002CB1AE /* main.m in Sources */,
 				0758BE5E212C340100B111FA /* CBInteractiveTransition.m in Sources */,
+				07B28BC5212CEE4700B64A4D /* ThirdViewController.m in Sources */,
 				544FD645212C0C3F00F205AF /* CBAnimationImageView.m in Sources */,
+				07B28BC6212CEE4700B64A4D /* FirstViewController.m in Sources */,
 				545371AC212BE45000054B56 /* CBSemiCircleView.m in Sources */,
 				0758BE5B212C307200B111FA /* CBShowFloatingVC.m in Sources */,
 				07B47DEA212B98DE002CB1AE /* CBNextVC.m in Sources */,
