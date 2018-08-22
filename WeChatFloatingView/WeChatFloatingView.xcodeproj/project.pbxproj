@@ -13,6 +13,8 @@
 		07B28BC5212CEE4700B64A4D /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B28BBF212CEE4600B64A4D /* ThirdViewController.m */; };
 		07B28BC6212CEE4700B64A4D /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B28BC0212CEE4600B64A4D /* FirstViewController.m */; };
 		07B28BC7212CEE4700B64A4D /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B28BC4212CEE4700B64A4D /* SecondViewController.m */; };
+		07B28BCA212CFC1800B64A4D /* girl_726.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 07B28BC8212CFC1700B64A4D /* girl_726.JPG */; };
+		07B28BCB212CFC1800B64A4D /* IMG_1199.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 07B28BC9212CFC1700B64A4D /* IMG_1199.JPG */; };
 		07B47DD3212B964F002CB1AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B47DD2212B964F002CB1AE /* AppDelegate.m */; };
 		07B47DD6212B964F002CB1AE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B47DD5212B964F002CB1AE /* ViewController.m */; };
 		07B47DD9212B964F002CB1AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07B47DD7212B964F002CB1AE /* Main.storyboard */; };
@@ -38,6 +40,8 @@
 		07B28BC2212CEE4700B64A4D /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		07B28BC3212CEE4700B64A4D /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
 		07B28BC4212CEE4700B64A4D /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		07B28BC8212CFC1700B64A4D /* girl_726.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = girl_726.JPG; sourceTree = "<group>"; };
+		07B28BC9212CFC1700B64A4D /* IMG_1199.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1199.JPG; sourceTree = "<group>"; };
 		07B47DCE212B964F002CB1AE /* WeChatFloatingView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeChatFloatingView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07B47DD1212B964F002CB1AE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		07B47DD2212B964F002CB1AE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 		07B47DD0212B964F002CB1AE /* WeChatFloatingView */ = {
 			isa = PBXGroup;
 			children = (
+				07B28BC8212CFC1700B64A4D /* girl_726.JPG */,
+				07B28BC9212CFC1700B64A4D /* IMG_1199.JPG */,
 				07B47DD1212B964F002CB1AE /* AppDelegate.h */,
 				07B47DD2212B964F002CB1AE /* AppDelegate.m */,
 				07B47DD4212B964F002CB1AE /* ViewController.h */,
@@ -198,6 +204,8 @@
 				07B47DDE212B9650002CB1AE /* LaunchScreen.storyboard in Resources */,
 				07B47DDB212B9650002CB1AE /* Assets.xcassets in Resources */,
 				07B47DD9212B964F002CB1AE /* Main.storyboard in Resources */,
+				07B28BCB212CFC1800B64A4D /* IMG_1199.JPG in Resources */,
+				07B28BCA212CFC1800B64A4D /* girl_726.JPG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
