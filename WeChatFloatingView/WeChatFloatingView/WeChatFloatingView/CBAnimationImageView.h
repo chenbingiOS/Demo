@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-// 转场
-@interface CBAnimationImageView : UIImageView
+// 转场截图遮罩动画
+@interface CBAnimationImageView : UIView
 
-- (void)startAnimateWithView:(UIView *)theView fromRect:(CGRect)fromRect toRect:(CGRect)toRect;
+@property (nonatomic, strong) UIImage *screenImage;
 
+- (void)startAnimationForView:(UIView *)theView fromRect:(CGRect)fromRect toRect:(CGRect)toRect;
+- (void)startAnimationForView:(UIView *)theView fromRect:(CGRect)fromRect toRect:(CGRect)toRect completionBlock:(void(^)(void))completionBlock;
 @end

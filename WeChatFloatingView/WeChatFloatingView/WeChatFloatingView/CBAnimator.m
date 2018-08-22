@@ -20,7 +20,8 @@
     UIView *containerView = transitionContext.containerView;
 
     // 正常Push进入，使用
-    if (_operation == UINavigationControllerOperationPush) {
+    if (_operation == UINavigationControllerOperationPush)
+    {
         /// transitionContext: fromView fromViewController toView toViewController containerVier
         /// A控制器 跳转的 B控制器
         UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
@@ -31,26 +32,27 @@
         // 截屏
         UIGraphicsBeginImageContext(toView.frame.size);
         [toView.layer renderInContext:UIGraphicsGetCurrentContext()];
-        theView.image = UIGraphicsGetImageFromCurrentImageContext();
+        UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+        theView.screenImage = image;
         UIGraphicsEndImageContext();
+
         toView.hidden = YES;
 
         /// animationView 是从 floatingBtn 当前frame 展开到 toView.frame
         CGRect fromRect = CGRectMake(_curPoint.x, _curPoint.y, 60.f, 60.f);
-        [theView startAnimateWithView:toView fromRect:fromRect toRect:toView.frame];
-
-        // 展开完后移除
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [transitionContext completeTransition:YES]; /// 移除fromView，fromViewController
-        });
+        __block id <UIViewControllerContextTransitioning> tc = transitionContext;
+        [theView startAnimationForView:toView fromRect:fromRect toRect:toView.frame completionBlock:^{
+            // 展开完后移除
+            [tc completeTransition:YES]; /// 移除fromView，fromViewController
+        }];
     }
     // 弹出
-    else if (_operation == UINavigationControllerOperationPop) {
-        
+    else if (_operation == UINavigationControllerOperationPop)
+    {
         UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
-        [containerView addSubview:toView];
+        [containerView addSubview:toView];  // 容器底部
         UIView *fromView =[transitionContext viewForKey:UITransitionContextFromViewKey];
-        [containerView bringSubviewToFront:fromView];
+        [containerView bringSubviewToFront:fromView];   // 容器顶部
         UIView *floatingBtn = [UIApplication sharedApplication].keyWindow.subviews.lastObject;
         
         // 可交互动画
@@ -64,23 +66,24 @@
                 }
             }];
         }
-        // 非交互动画
-        else {
+        else // 非交互动画，缩小
+        {
             CBAnimationImageView *theView = [[CBAnimationImageView alloc] initWithFrame:fromView.bounds];
             [containerView addSubview:theView];
+            
             // 截屏
             UIGraphicsBeginImageContext(fromView.frame.size);
             [fromView.layer renderInContext:UIGraphicsGetCurrentContext()];
-            theView.image = UIGraphicsGetImageFromCurrentImageContext();
+            UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+            theView.screenImage = image;
             UIGraphicsEndImageContext();
             
-            fromView.frame = CGRectZero;
             CGRect fromRect = fromView.frame;
             CGRect toRect = CGRectMake(_curPoint.x, _curPoint.y, 60.f, 60.f);
-            [theView startAnimateWithView:theView fromRect:fromRect toRect:toRect];
+            [theView startAnimationForView:theView fromRect:fromRect toRect:toRect];
             
             [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
-            floatingBtn.alpha  = 1.f;
+            floatingBtn.alpha = 1.f;
         }
     }
     

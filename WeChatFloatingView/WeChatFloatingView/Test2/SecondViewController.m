@@ -44,8 +44,7 @@
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
 
     NSString *title;
-//    BOOL isShowing = [XWFloatingWindowView isShowingWithViewController:self];
-    BOOL isShowing = NO;
+    BOOL isShowing = [CBWeChatFloatingBtn isShowingWithViewController:self];
     if (isShowing) {
         title = @"取消浮窗";
     }else{
@@ -55,8 +54,7 @@
         if (isShowing) {
             NSLog(@"移除 浮窗");
             // 移除
-//            [XWFloatingWindowView remove];
-            
+            [CBWeChatFloatingBtn remove];
         }else{
             NSLog(@"添加 浮窗");
             // 添加

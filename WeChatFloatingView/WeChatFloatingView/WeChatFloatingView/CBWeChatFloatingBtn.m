@@ -18,8 +18,9 @@
     CBInteractiveTransition *interactiveTransition;
 }
 
-#warning 这边可能需要测试一下，识别是否是 weak 还是 strong
-@property (nonatomic, weak) UIViewController *containerVC;
+@property (nonatomic, strong) UIViewController *containerVC;
+@property (nonatomic, assign) BOOL isShowing;
+
 @end
 
 @implementation CBWeChatFloatingBtn
@@ -44,8 +45,6 @@ static CBSemiCircleView *semiCircleView;
         floatingBtn = [[CBWeChatFloatingBtn alloc] initWithFrame:CGRectMake(kleftSpace, 100.f, 60.f, 60.f)];
         semiCircleView = [[CBSemiCircleView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height, kfixSpace, kfixSpace)];
     });
-    floatingBtn.frame = CGRectMake(kleftSpace, [UIScreen mainScreen].bounds.size.height/2, 60.f, 60.f);
-    floatingBtn.alpha = 1.f;
     
     // 显示在最顶层，两者顺序不能颠倒
     if (!semiCircleView.superview) {
@@ -58,6 +57,7 @@ static CBSemiCircleView *semiCircleView;
     }
     
     floatingBtn.containerVC = vc;
+    floatingBtn.isShowing = YES;
     
     navc.delegate = floatingBtn;
     [navc popViewControllerAnimated:YES];
@@ -67,8 +67,19 @@ static CBSemiCircleView *semiCircleView;
     [floatingBtn removeForWindow];
 }
 
++ (BOOL)isShowingWithViewController:(UIViewController *)vc {
+    if (!floatingBtn) {
+        return NO;
+    }
+    if (floatingBtn.containerVC != vc) {
+        return NO;
+    }
+    return floatingBtn.isShowing;
+}
+
 - (void)removeForWindow {
     [self removeFromSuperview];
+    self.isShowing = NO;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -118,8 +129,6 @@ static CBSemiCircleView *semiCircleView;
     CGFloat y = MAX(self.frame.size.width/2, MIN([UIScreen mainScreen].bounds.size.height - self.frame.size.width/2, centerY));
     // 移动的时候，图标也跟随移动
     self.center = CGPointMake(x, y);
-    
-    
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
