@@ -67,7 +67,7 @@
 - (void)moreAction {
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"请选择" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"添加浮窗" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [CBWeChatFloatingBtn show];
+        [CBWeChatFloatingBtn showWithViewController:self];
     }];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     [alert addAction:defaultAction];

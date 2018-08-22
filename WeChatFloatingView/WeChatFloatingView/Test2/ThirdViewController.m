@@ -7,7 +7,7 @@
 //
 
 #import "ThirdViewController.h"
-#import "XWFloatingWindowView.h"
+#import "CBWeChatFloatingBtn.h"
 
 @interface ThirdViewController ()
 
@@ -25,7 +25,8 @@
     self.navigationItem.title = @"这是3号视图";
     UIButton *more = [UIButton buttonWithType:UIButtonTypeCustom];
     more.frame = CGRectMake(0, 0, 64, 30);
-    [more setImage:[UIImage imageNamed:@"更多"] forState:UIControlStateNormal];
+//    [more setImage:[UIImage imageNamed:@"更多"] forState:UIControlStateNormal];
+    [more setTitle:@"更多" forState:UIControlStateNormal];
     [more addTarget:self action:@selector(moreClick:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:more];
     self.navigationItem.rightBarButtonItem = rightItem;
@@ -40,7 +41,8 @@
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     NSString *title;
-    BOOL isShowing = [XWFloatingWindowView isShowingWithViewController:self];
+    //    BOOL isShowing = [XWFloatingWindowView isShowingWithViewController:self];
+    BOOL isShowing = NO;
     if (isShowing) {
         title = @"取消浮窗";
     }else{
@@ -50,11 +52,12 @@
         if (isShowing) {
             NSLog(@"移除 浮窗");
             // 移除
-            [XWFloatingWindowView remove];
+            //            [XWFloatingWindowView remove];
+            
         }else{
             NSLog(@"添加 浮窗");
             // 添加
-            [XWFloatingWindowView showWithViewController:self];
+            [CBWeChatFloatingBtn showWithViewController:self];
         }
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:@"关闭视图保留浮窗" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -63,7 +66,7 @@
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:@"关闭视图移除浮窗" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         NSLog(@"关闭视图移除浮窗");
-        [XWFloatingWindowView remove];
+        //        [XWFloatingWindowView remove];
         [self.navigationController popViewControllerAnimated:YES];
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {

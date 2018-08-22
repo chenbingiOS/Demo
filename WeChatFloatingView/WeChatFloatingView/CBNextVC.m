@@ -26,7 +26,7 @@
 }
 
 - (IBAction)actionShowWeChatFloatingBtn:(id)sender {
-    [CBWeChatFloatingBtn show];
+    [CBWeChatFloatingBtn showWithViewController:self];
 }
 
 /*

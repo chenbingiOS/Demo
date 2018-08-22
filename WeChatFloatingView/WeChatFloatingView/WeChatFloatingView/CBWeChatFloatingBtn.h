@@ -23,6 +23,13 @@
  */
 @interface CBWeChatFloatingBtn : UIView
 
-+ (void)show;
+/** 显示浮窗 */
++ (void)showWithViewController:(UIViewController *)vc;
+
+/** 移除浮窗 */
++ (void)remove;
+
+/** 判断浮窗是否展示 */
++ (BOOL)isShowingWithViewController:(UIViewController *)vc;
 
 @end
