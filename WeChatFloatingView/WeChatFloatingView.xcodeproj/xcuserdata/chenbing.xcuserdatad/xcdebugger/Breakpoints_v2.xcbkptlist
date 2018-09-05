@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeChatFloatingView/WeChatFloatingView/CBWeChatFloatingBtn.m"
-            timestampString = "556639158.219328"
+            timestampString = "557110928.792652"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "135"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeChatFloatingView/WeChatFloatingView/CBWeChatFloatingBtn.m"
-            timestampString = "556639158.219615"
+            timestampString = "557110928.792716"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "142"
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WeChatFloatingView/WeChatFloatingView/CBWeChatFloatingManager.m"
-            timestampString = "556639158.219676"
+            timestampString = "556721478.2226371"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "170"
@@ -58,27 +58,72 @@
                   moduleName = "WeChatFloatingView"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chenbing/Desktop/Demo/WeChatFloatingView/WeChatFloatingView/WeChatFloatingView/CBWeChatFloatingManager.m"
-                  timestampString = "556639158.27213"
+                  timestampString = "556783125.614948"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "170"
                   endingLineNumber = "170"
-                  offsetFromSymbolStart = "3000">
+                  offsetFromSymbolStart = "2900">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[CBWeChatFloatingManager displayLinkActionEdgePan:]"
+                  symbolName = "__52-[CBWeChatFloatingManager displayLinkActionEdgePan:]_block_invoke"
                   moduleName = "WeChatFloatingView"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chenbing/Desktop/Demo/WeChatFloatingView/WeChatFloatingView/WeChatFloatingView/CBWeChatFloatingManager.m"
-                  timestampString = "556639158.273998"
+                  timestampString = "556783125.617309"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "170"
                   endingLineNumber = "170"
-                  offsetFromSymbolStart = "3016">
+                  offsetFromSymbolStart = "368">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_.90"
+                  moduleName = "WeChatFloatingView"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chenbing/Desktop/Demo/WeChatFloatingView/WeChatFloatingView/WeChatFloatingView/CBWeChatFloatingManager.m"
+                  timestampString = "556783125.621735"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "168"
+                  endingLineNumber = "168"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__52-[CBWeChatFloatingManager displayLinkActionEdgePan:]_block_invoke.93"
+                  moduleName = "WeChatFloatingView"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chenbing/Desktop/Demo/WeChatFloatingView/WeChatFloatingView/WeChatFloatingView/CBWeChatFloatingManager.m"
+                  timestampString = "556783125.627332"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "171"
+                  endingLineNumber = "171"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.99"
+                  moduleName = "WeChatFloatingView"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chenbing/Desktop/Demo/WeChatFloatingView/WeChatFloatingView/WeChatFloatingView/CBWeChatFloatingManager.m"
+                  timestampString = "556783125.630487"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "170"
+                  endingLineNumber = "170"
+                  offsetFromSymbolStart = "16">
                </Location>
             </Locations>
          </BreakpointContent>
