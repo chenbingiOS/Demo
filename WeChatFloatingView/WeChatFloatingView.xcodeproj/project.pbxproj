@@ -10,6 +10,11 @@
 		0719D9CA212C068500B8ECBB /* CBAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0719D9C9212C068500B8ECBB /* CBAnimator.m */; };
 		0758BE5B212C307200B111FA /* CBShowFloatingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0758BE5A212C307200B111FA /* CBShowFloatingVC.m */; };
 		0758BE5E212C340100B111FA /* CBInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 0758BE5D212C340100B111FA /* CBInteractiveTransition.m */; };
+		0788735A212EDC9A007790C1 /* CBFloatingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 07887359212EDC9A007790C1 /* CBFloatingManager.m */; };
+		0788735E212EDCBC007790C1 /* CBFloatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0788735D212EDCBC007790C1 /* CBFloatingView.m */; };
+		07887361212EDCE9007790C1 /* CBQuarterCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07887360212EDCE9007790C1 /* CBQuarterCircleView.m */; };
+		07887364212EDD1E007790C1 /* CBAnimatedTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 07887363212EDD1E007790C1 /* CBAnimatedTransition.m */; };
+		07887367212EDD3B007790C1 /* CBAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07887366212EDD3B007790C1 /* CBAnimationView.m */; };
 		07B28BC5212CEE4700B64A4D /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B28BBF212CEE4600B64A4D /* ThirdViewController.m */; };
 		07B28BC6212CEE4700B64A4D /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B28BC0212CEE4600B64A4D /* FirstViewController.m */; };
 		07B28BC7212CEE4700B64A4D /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B28BC4212CEE4700B64A4D /* SecondViewController.m */; };
@@ -35,6 +40,16 @@
 		0758BE5A212C307200B111FA /* CBShowFloatingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBShowFloatingVC.m; sourceTree = "<group>"; };
 		0758BE5C212C340100B111FA /* CBInteractiveTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBInteractiveTransition.h; sourceTree = "<group>"; };
 		0758BE5D212C340100B111FA /* CBInteractiveTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBInteractiveTransition.m; sourceTree = "<group>"; };
+		07887358212EDC9A007790C1 /* CBFloatingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBFloatingManager.h; sourceTree = "<group>"; };
+		07887359212EDC9A007790C1 /* CBFloatingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBFloatingManager.m; sourceTree = "<group>"; };
+		0788735C212EDCBC007790C1 /* CBFloatingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBFloatingView.h; sourceTree = "<group>"; };
+		0788735D212EDCBC007790C1 /* CBFloatingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBFloatingView.m; sourceTree = "<group>"; };
+		0788735F212EDCE9007790C1 /* CBQuarterCircleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBQuarterCircleView.h; sourceTree = "<group>"; };
+		07887360212EDCE9007790C1 /* CBQuarterCircleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBQuarterCircleView.m; sourceTree = "<group>"; };
+		07887362212EDD1E007790C1 /* CBAnimatedTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBAnimatedTransition.h; sourceTree = "<group>"; };
+		07887363212EDD1E007790C1 /* CBAnimatedTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBAnimatedTransition.m; sourceTree = "<group>"; };
+		07887365212EDD3B007790C1 /* CBAnimationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBAnimationView.h; sourceTree = "<group>"; };
+		07887366212EDD3B007790C1 /* CBAnimationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBAnimationView.m; sourceTree = "<group>"; };
 		07B28BBF212CEE4600B64A4D /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 		07B28BC0212CEE4600B64A4D /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		07B28BC1212CEE4600B64A4D /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
@@ -76,6 +91,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0788735B212EDC9F007790C1 /* Floating */ = {
+			isa = PBXGroup;
+			children = (
+				07887358212EDC9A007790C1 /* CBFloatingManager.h */,
+				07887359212EDC9A007790C1 /* CBFloatingManager.m */,
+				0788735C212EDCBC007790C1 /* CBFloatingView.h */,
+				0788735D212EDCBC007790C1 /* CBFloatingView.m */,
+				0788735F212EDCE9007790C1 /* CBQuarterCircleView.h */,
+				07887360212EDCE9007790C1 /* CBQuarterCircleView.m */,
+				07887362212EDD1E007790C1 /* CBAnimatedTransition.h */,
+				07887363212EDD1E007790C1 /* CBAnimatedTransition.m */,
+				07887365212EDD3B007790C1 /* CBAnimationView.h */,
+				07887366212EDD3B007790C1 /* CBAnimationView.m */,
+			);
+			path = Floating;
+			sourceTree = "<group>";
+		};
 		07B28BBE212CEE3600B64A4D /* Test2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +150,7 @@
 				07B47DE9212B98DE002CB1AE /* CBNextVC.m */,
 				0758BE59212C307200B111FA /* CBShowFloatingVC.h */,
 				0758BE5A212C307200B111FA /* CBShowFloatingVC.m */,
+				0788735B212EDC9F007790C1 /* Floating */,
 				07B28BBE212CEE3600B64A4D /* Test2 */,
 				07B47DE7212B971E002CB1AE /* WeChatFloatingView */,
 				07B47DD7212B964F002CB1AE /* Main.storyboard */,
@@ -221,8 +254,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0788735A212EDC9A007790C1 /* CBFloatingManager.m in Sources */,
 				0719D9CA212C068500B8ECBB /* CBAnimator.m in Sources */,
+				07887361212EDCE9007790C1 /* CBQuarterCircleView.m in Sources */,
 				07B28BC7212CEE4700B64A4D /* SecondViewController.m in Sources */,
+				07887364212EDD1E007790C1 /* CBAnimatedTransition.m in Sources */,
 				07B47DD6212B964F002CB1AE /* ViewController.m in Sources */,
 				07B47DED212B9904002CB1AE /* CBWeChatFloatingBtn.m in Sources */,
 				07B47DE1212B9650002CB1AE /* main.m in Sources */,
@@ -233,8 +269,10 @@
 				545371AC212BE45000054B56 /* CBSemiCircleView.m in Sources */,
 				0758BE5B212C307200B111FA /* CBShowFloatingVC.m in Sources */,
 				07B47DEA212B98DE002CB1AE /* CBNextVC.m in Sources */,
+				07887367212EDD3B007790C1 /* CBAnimationView.m in Sources */,
 				5485BF7A212D446D00F94CF0 /* CBWeChatFloatingManager.m in Sources */,
 				07B47DD3212B964F002CB1AE /* AppDelegate.m in Sources */,
+				0788735E212EDCBC007790C1 /* CBFloatingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,7 +420,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.chenbing.WeChatFloatingView;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chenbing.floating;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -400,7 +438,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.chenbing.WeChatFloatingView;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chenbing.floating;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

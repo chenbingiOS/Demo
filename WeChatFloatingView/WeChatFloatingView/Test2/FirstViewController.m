@@ -9,7 +9,7 @@
 #import "FirstViewController.h"
 #import "SecondViewController.h"
 #import "ThirdViewController.h"
-#import "CBWeChatFloatingManager.h"
+#import "CBFloatingManager.h"
 
 @interface FirstViewController ()
 @end
@@ -57,7 +57,9 @@
 
 - (void)toSecondClick {
     SecondViewController *secondVC = [[SecondViewController alloc] init];
-    [self.navigationController pushViewController:secondVC animated:YES];
+//    [self.navigationController pushViewController:secondVC animated:YES];
+//    [[CBFloatingManager sharedManager] pushViewController:secondVC];
+    [[CBFloatingManager sharedManager] pushViewController:secondVC navCtrl:self.navigationController];
 }
 
 - (void)toThirdClick {

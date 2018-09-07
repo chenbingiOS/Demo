@@ -26,13 +26,13 @@
     
     self.navigationItem.title = @"这是2号视图";
     
-    UIButton *more = [UIButton buttonWithType:UIButtonTypeCustom];
-    more.frame = CGRectMake(0, 0, 64, 30);
-//    [more setImage:[UIImage imageNamed:@"更多"] forState:UIControlStateNormal];
-    [more setTitle:@"更多" forState:UIControlStateNormal];
-    [more addTarget:self action:@selector(moreClick:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:more];
-    self.navigationItem.rightBarButtonItem = rightItem;
+//    UIButton *more = [UIButton buttonWithType:UIButtonTypeCustom];
+//    more.frame = CGRectMake(0, 0, 64, 30);
+////    [more setImage:[UIImage imageNamed:@"更多"] forState:UIControlStateNormal];
+//    [more setTitle:@"更多" forState:UIControlStateNormal];
+//    [more addTarget:self action:@selector(moreClick:) forControlEvents:UIControlEventTouchUpInside];
+//    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:more];
+//    self.navigationItem.rightBarButtonItem = rightItem;
 }
 
 - (void)dealloc {

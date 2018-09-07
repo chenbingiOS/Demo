@@ -28,7 +28,7 @@
     self.window.rootViewController = naviController;
     [self.window makeKeyAndVisible];
     
-    [[CBWeChatFloatingManager sharedManager] addShowFloatingVCClass:@[@"SecondViewController"]];
+//    [[CBWeChatFloatingManager sharedManager] addShowFloatingVCClass:@[@"SecondViewController"]];
     
     return YES;
 }
