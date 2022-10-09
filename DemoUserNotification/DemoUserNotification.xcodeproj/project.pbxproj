@@ -15,6 +15,8 @@
 		7C01012328F180B9004A3535 /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C01012228F180B9004A3535 /* NotificationHandler.swift */; };
 		7C58577328F2607700BF2818 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58577228F2607700BF2818 /* NotificationManager.swift */; };
 		7C58577528F2641800BF2818 /* TimelintervalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58577428F2641800BF2818 /* TimelintervalView.swift */; };
+		7C58577728F26BED00BF2818 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58577628F26BED00BF2818 /* LocationView.swift */; };
+		7C58577928F270E000BF2818 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58577828F270E000BF2818 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,9 @@
 		7C01012228F180B9004A3535 /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
 		7C58577228F2607700BF2818 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		7C58577428F2641800BF2818 /* TimelintervalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelintervalView.swift; sourceTree = "<group>"; };
+		7C58577628F26BED00BF2818 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
+		7C58577828F270E000BF2818 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		7C58577A28F2731300BF2818 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,12 +64,15 @@
 		7C01010F28F1731B004A3535 /* DemoUserNotification */ = {
 			isa = PBXGroup;
 			children = (
+				7C58577A28F2731300BF2818 /* Info.plist */,
 				7C01011028F1731B004A3535 /* DemoUserNotificationApp.swift */,
 				7C01012228F180B9004A3535 /* NotificationHandler.swift */,
 				7C58577228F2607700BF2818 /* NotificationManager.swift */,
+				7C58577828F270E000BF2818 /* LocationManager.swift */,
 				7C01011E28F17BD5004A3535 /* TableView.swift */,
 				7C01012028F18094004A3535 /* CalendarView.swift */,
 				7C58577428F2641800BF2818 /* TimelintervalView.swift */,
+				7C58577628F26BED00BF2818 /* LocationView.swift */,
 				7C01011428F1731C004A3535 /* Assets.xcassets */,
 				7C01011628F1731C004A3535 /* Preview Content */,
 			);
@@ -153,6 +161,8 @@
 				7C58577528F2641800BF2818 /* TimelintervalView.swift in Sources */,
 				7C01012328F180B9004A3535 /* NotificationHandler.swift in Sources */,
 				7C58577328F2607700BF2818 /* NotificationManager.swift in Sources */,
+				7C58577928F270E000BF2818 /* LocationManager.swift in Sources */,
+				7C58577728F26BED00BF2818 /* LocationView.swift in Sources */,
 				7C01011128F1731B004A3535 /* DemoUserNotificationApp.swift in Sources */,
 				7C01012128F18094004A3535 /* CalendarView.swift in Sources */,
 			);
@@ -285,6 +295,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"DemoUserNotification/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DemoUserNotification/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "使用您的位置提供通知服务";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "使用您的位置提供通知服务";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -313,6 +326,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"DemoUserNotification/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DemoUserNotification/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "使用您的位置提供通知服务";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "使用您的位置提供通知服务";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
