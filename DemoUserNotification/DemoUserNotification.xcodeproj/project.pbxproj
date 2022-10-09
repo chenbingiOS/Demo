@@ -14,6 +14,7 @@
 		7C01012128F18094004A3535 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C01012028F18094004A3535 /* CalendarView.swift */; };
 		7C01012328F180B9004A3535 /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C01012228F180B9004A3535 /* NotificationHandler.swift */; };
 		7C58577328F2607700BF2818 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58577228F2607700BF2818 /* NotificationManager.swift */; };
+		7C58577528F2641800BF2818 /* TimelintervalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58577428F2641800BF2818 /* TimelintervalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		7C01012028F18094004A3535 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		7C01012228F180B9004A3535 /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
 		7C58577228F2607700BF2818 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		7C58577428F2641800BF2818 /* TimelintervalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelintervalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				7C58577228F2607700BF2818 /* NotificationManager.swift */,
 				7C01011E28F17BD5004A3535 /* TableView.swift */,
 				7C01012028F18094004A3535 /* CalendarView.swift */,
+				7C58577428F2641800BF2818 /* TimelintervalView.swift */,
 				7C01011428F1731C004A3535 /* Assets.xcassets */,
 				7C01011628F1731C004A3535 /* Preview Content */,
 			);
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C01011F28F17BD5004A3535 /* TableView.swift in Sources */,
+				7C58577528F2641800BF2818 /* TimelintervalView.swift in Sources */,
 				7C01012328F180B9004A3535 /* NotificationHandler.swift in Sources */,
 				7C58577328F2607700BF2818 /* NotificationManager.swift in Sources */,
 				7C01011128F1731B004A3535 /* DemoUserNotificationApp.swift in Sources */,

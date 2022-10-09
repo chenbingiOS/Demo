@@ -16,7 +16,7 @@ struct CalendarView: View {
     @State var showAlert: Bool = false
     // 跳转设置页面地址
     let settingURL = URL(string: UIApplication.openSettingsURLString)!
-
+    // 通知管理类
     @ObservedObject var notificationManager = NotificationManager()
 
     var body: some View {
@@ -28,7 +28,7 @@ struct CalendarView: View {
                 .datePickerStyle(.wheel)
                 .labelsHidden()
             Button("发送通知") {
-                notificationManager.scheduleNotification(at: wakeUp)
+                notificationManager.scheduleCalendarNotification(at: wakeUp)
             }
             .padding()
             Text(notificationType.descriptionText)

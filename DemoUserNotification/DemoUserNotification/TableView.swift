@@ -12,8 +12,10 @@ struct TableView: View {
         NavigationView {
             List {
                 Section {
-                    NavigationLink.init("Calendar Notification", destination: CalendarView(notificationType: .calendar))
-                    NavigationLink.init("Time Interval Notification", destination: Text("行2内容"))
+                    NavigationLink.init("Calendar Notification",
+                                        destination: CalendarView(notificationType: .calendar))
+                    NavigationLink.init("Time Interval Notification",
+                                        destination: TimelintervalView(notificationType: .timeInterval))
                     NavigationLink.init("TiLocation Notification", destination: Text("行3内容"))
                 } header: {
                     Text("Local Notifications")
