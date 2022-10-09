@@ -25,7 +25,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .badge, .sound, .carPlay]) { (granted, error) in
-            print("Permission granted:\(granted)")
+            print("是否授权: \(granted)")
             // Enable or disable features based on authorization.
         }
         return true

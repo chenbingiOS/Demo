@@ -36,7 +36,13 @@ enum UserNotificationType: String {
     }
 }
 
+enum UserNotificationCategoryType: String {
+    case calendarCategory
+    case customUICategory
+}
+
 
 class NotificationHandler: NSObject {
 
 }
+
