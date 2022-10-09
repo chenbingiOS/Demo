@@ -23,8 +23,8 @@ struct DemoUserNotificationApp: App {
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.alert, .badge, .sound, .carPlay]) { (granted, error) in
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: [.alert, .badge, .sound]) { (granted, error) in
             print("是否授权: \(granted)")
             // Enable or disable features based on authorization.
         }

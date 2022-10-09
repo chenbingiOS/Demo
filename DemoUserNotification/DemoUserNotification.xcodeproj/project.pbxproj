@@ -12,8 +12,8 @@
 		7C01011828F1731C004A3535 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C01011728F1731C004A3535 /* Preview Assets.xcassets */; };
 		7C01011F28F17BD5004A3535 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C01011E28F17BD5004A3535 /* TableView.swift */; };
 		7C01012128F18094004A3535 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C01012028F18094004A3535 /* CalendarView.swift */; };
-		7C01012328F180B9004A3535 /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C01012228F180B9004A3535 /* NotificationHandler.swift */; };
-		7C58577328F2607700BF2818 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58577228F2607700BF2818 /* NotificationManager.swift */; };
+		7C01012328F180B9004A3535 /* UserNotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C01012228F180B9004A3535 /* UserNotificationHandler.swift */; };
+		7C58577328F2607700BF2818 /* UserNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58577228F2607700BF2818 /* UserNotificationManager.swift */; };
 		7C58577528F2641800BF2818 /* TimelintervalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58577428F2641800BF2818 /* TimelintervalView.swift */; };
 		7C58577728F26BED00BF2818 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58577628F26BED00BF2818 /* LocationView.swift */; };
 		7C58577928F270E000BF2818 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58577828F270E000BF2818 /* LocationManager.swift */; };
@@ -26,8 +26,8 @@
 		7C01011728F1731C004A3535 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7C01011E28F17BD5004A3535 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		7C01012028F18094004A3535 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
-		7C01012228F180B9004A3535 /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
-		7C58577228F2607700BF2818 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		7C01012228F180B9004A3535 /* UserNotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationHandler.swift; sourceTree = "<group>"; };
+		7C58577228F2607700BF2818 /* UserNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationManager.swift; sourceTree = "<group>"; };
 		7C58577428F2641800BF2818 /* TimelintervalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelintervalView.swift; sourceTree = "<group>"; };
 		7C58577628F26BED00BF2818 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		7C58577828F270E000BF2818 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -66,8 +66,8 @@
 			children = (
 				7C58577A28F2731300BF2818 /* Info.plist */,
 				7C01011028F1731B004A3535 /* DemoUserNotificationApp.swift */,
-				7C01012228F180B9004A3535 /* NotificationHandler.swift */,
-				7C58577228F2607700BF2818 /* NotificationManager.swift */,
+				7C01012228F180B9004A3535 /* UserNotificationHandler.swift */,
+				7C58577228F2607700BF2818 /* UserNotificationManager.swift */,
 				7C58577828F270E000BF2818 /* LocationManager.swift */,
 				7C01011E28F17BD5004A3535 /* TableView.swift */,
 				7C01012028F18094004A3535 /* CalendarView.swift */,
@@ -159,8 +159,8 @@
 			files = (
 				7C01011F28F17BD5004A3535 /* TableView.swift in Sources */,
 				7C58577528F2641800BF2818 /* TimelintervalView.swift in Sources */,
-				7C01012328F180B9004A3535 /* NotificationHandler.swift in Sources */,
-				7C58577328F2607700BF2818 /* NotificationManager.swift in Sources */,
+				7C01012328F180B9004A3535 /* UserNotificationHandler.swift in Sources */,
+				7C58577328F2607700BF2818 /* UserNotificationManager.swift in Sources */,
 				7C58577928F270E000BF2818 /* LocationManager.swift in Sources */,
 				7C58577728F26BED00BF2818 /* LocationView.swift in Sources */,
 				7C01011128F1731B004A3535 /* DemoUserNotificationApp.swift in Sources */,
@@ -293,6 +293,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoUserNotification/Preview Content\"";
+				DEVELOPMENT_TEAM = 45K7R3R8HH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DemoUserNotification/Info.plist;
@@ -303,6 +304,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -324,6 +326,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoUserNotification/Preview Content\"";
+				DEVELOPMENT_TEAM = 45K7R3R8HH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DemoUserNotification/Info.plist;
@@ -334,6 +337,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

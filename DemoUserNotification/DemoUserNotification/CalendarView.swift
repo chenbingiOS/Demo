@@ -17,7 +17,7 @@ struct CalendarView: View {
     // 跳转设置页面地址
     let settingURL = URL(string: UIApplication.openSettingsURLString)!
     // 通知管理类
-    @ObservedObject var notificationManager = NotificationManager()
+    @ObservedObject var notificationManager = UserNotificationManager()
 
     var body: some View {
         VStack {

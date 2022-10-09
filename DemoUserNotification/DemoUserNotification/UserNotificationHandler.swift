@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 enum UserNotificationType: String {
     case calendar
@@ -41,8 +42,28 @@ enum UserNotificationCategoryType: String {
     case customUICategory
 }
 
+struct UserNotificationInfo {
+    // ID
+    let notificationId: String?
+    let locationId: String?
+    let categoryId: String?
+    // 位置
+    let radius: Double?
+    let latitude: Double?
+    let longitude: Double?
+    // 位置坐标
+    var coordinate2D: CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: latitude ?? 0,
+                                      longitude: longitude ?? 0)
+    }
+    // 通知信息
+    let title: String?
+    let subTitle: String?
+    let body: String?
+    let data: [String: Any]?
+}
 
-class NotificationHandler: NSObject {
+class UserNotificationHandler: NSObject {
 
 }
 

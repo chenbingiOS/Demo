@@ -26,7 +26,8 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
 
     func requestLocation() {
-        manager.requestLocation()
+//        manager.requestLocation()
+        manager.startUpdatingLocation()
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -34,6 +35,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             return
         }
         self.coordinate2D = coordinate2D
+        // 位置实时变更
         manager.stopUpdatingLocation()
     }
 

@@ -14,7 +14,7 @@ struct TimelintervalView: View {
     // 时间长度
     @State var time: Int = 10
     // 通知管理类
-    @ObservedObject var notificationManager = NotificationManager()
+    @ObservedObject var notificationManager = UserNotificationManager()
 
     var body: some View {
         Text(notificationType.title)

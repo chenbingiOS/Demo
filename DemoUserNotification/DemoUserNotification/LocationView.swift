@@ -12,7 +12,7 @@ struct LocationView: View {
     // 通知类型
     var notificationType: UserNotificationType!
     // 通知管理类
-    @ObservedObject var notificationManager = NotificationManager()
+    @ObservedObject var notificationManager = UserNotificationManager()
     // 位置管理类 // 使用 StateObject，在进入该页面才创建
     @StateObject var locationManager = LocationManager()
     // 半径
@@ -25,7 +25,7 @@ struct LocationView: View {
             .padding()
         if let coordinate2D = locationManager.coordinate2D {
             Text("Latitude: \(coordinate2D.latitude)")
-            Text("Longitude: \(coordinate2D.latitude)")
+            Text("Longitude: \(coordinate2D.longitude)")
         }
         HStack {
             Text("半径")
