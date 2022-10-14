@@ -69,7 +69,94 @@ struct UserNotificationInfo {
     let data: [String: Any]?
 }
 
-class UserNotificationHandler: NSObject {
-
+class UserNotificationHandler: NSObject, UserNotificationManagerSchedulerDelegate {
+    /// 当用户拒绝通知权限提示时调用
+    func notificationPermissionDenied() {}
+    /// 当用户拒绝位置权限提示时调用
+    func locationPermissionDenied() {}
+    /// 通知请求完成时调用
+    /// - Parameter error: 添加通知时出现错误（可选）
+    func notificationScheduled(error: Error?) {}
+    // 如果通知到达时您的应用程序位于前台，共享用户通知中心将调用此方法将通知直接传递到您的应用
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        // 类别
+        guard let notificationType = UserNotificationType(rawValue: notification.request.identifier) else {
+            completionHandler([])
+            return
+        }
+        // 可以有的响应方式
+        let options: UNNotificationPresentationOptions
+        switch notificationType {
+        case .calendar:
+            options = []
+        default:
+            options = [.alert, .sound, .badge]
+        }
+        completionHandler(options)
+    }
+    // app处于后台、未运行时，系统会调用该方法，使用此方法处理用户对通知的响应
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        if response.actionIdentifier == UNNotificationDefaultActionIdentifier {
+            print("【UserNotificationHandler】默认行为触发")
+        } else if (response.actionIdentifier == UNNotificationDismissActionIdentifier) {
+            print("【UserNotificationHandler】消失行为触发")
+        } else if let category = UserNotificationCategoryType(rawValue: response.notification.request.content.categoryIdentifier) {
+            switch category {
+            case .calendarCategory:
+                handleCalendarCategory(response: response)
+            case .customUICategory:
+                handleCustomUICategory(response: response)
+            }
+        }
+        // app角标
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        completionHandler()
+    }
+    // 通知事件执行
+    private func handleCalendarCategory(response: UNNotificationResponse) {
+        if let actionType = CalendarCategoryAction(rawValue: response.actionIdentifier) {
+            switch actionType {
+            case .markAsCompleted:
+                print("【UserNotificationHandler】完成")
+                break
+            case .remindMeIn1Minute:
+                // 1 Minute
+                let newDate = Date(timeInterval: 60, since: Date())
+                UserNotificationManager().scheduleCalendarNotification(at: newDate, false)
+                print("【UserNotificationHandler】1 分钟后发送通知")
+            case .remindMeIn5Minutes:
+                // 5 Minutes
+                let newDate = Date(timeInterval: 60*5, since: Date())
+                UserNotificationManager().scheduleCalendarNotification(at: newDate, false)
+                print("【UserNotificationHandler】5 分钟后发送通知")
+            }
+        }
+    }
+    // 自定义事件执行
+    private func handleCustomUICategory(response: UNNotificationResponse) {
+//        var text: String = ""
+//
+//
+//        if let actionType = CustomizeUICategoryAction(rawValue: response.actionIdentifier) {
+//            switch actionType {
+//            case .stop:
+//                break;
+//
+//            case .comment:
+//                text = (response as! UNTextInputNotificationResponse).userText
+//            }
+//        }
+//
+//        if !text.isEmpty {
+//            let alertController = UIAlertController(title: "Comment", message: "You just said:\(text)", preferredStyle: .alert)
+//            let okAction = UIAlertAction(title: "OK", style: .default)
+//            alertController.addAction(okAction)
+//
+//            let viewController = UIApplication.shared.keyWindow?.rootViewController
+//            viewController?.present(alertController, animated: true, completion: nil)
+//        }
+//
+//        print(response.actionIdentifier)
+    }
 }
 

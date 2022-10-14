@@ -8,7 +8,7 @@
 import UIKit
 import CoreLocation
 
-protocol LocationNotificationSchedulerDelegate: UNUserNotificationCenterDelegate {
+protocol UserNotificationManagerSchedulerDelegate: UNUserNotificationCenterDelegate {
     /// 当用户拒绝通知权限提示时调用
     func notificationPermissionDenied()
     /// 当用户拒绝位置权限提示时调用
@@ -20,15 +20,15 @@ protocol LocationNotificationSchedulerDelegate: UNUserNotificationCenterDelegate
 
 class UserNotificationManager: NSObject, ObservableObject {
     
-    weak var delegate: LocationNotificationSchedulerDelegate? {
+    weak var delegate: UserNotificationManagerSchedulerDelegate? {
         didSet {
             UNUserNotificationCenter.current().delegate = delegate
         }
     }
 
-    func requestNotificationPermissions() {
+    public func requestNotificationPermissions() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
-            print("是否授权: \(granted)")
+            print("【UserNotificationManager】是否授权: \(granted)")
             DispatchQueue.main.async {
                 // 注册远程通知
                 UIApplication.shared.registerForRemoteNotifications()
@@ -42,7 +42,7 @@ class UserNotificationManager: NSObject, ObservableObject {
 // 发送本地通知逻辑
 extension UserNotificationManager {
     // 发送日期通知
-    func scheduleCalendarNotification(at date: Date) {
+    public func scheduleCalendarNotification(at date: Date, _ needAskNotificationPermission: Bool = true) {
         let calendar = Calendar(identifier: .chinese)
         let components = calendar.dateComponents(in: .current, from: date)
         let newComponents = DateComponents(calendar: calendar, timeZone: .current, month: components.month, day: components.day, hour: components.hour, minute: components.minute)
@@ -60,10 +60,14 @@ extension UserNotificationManager {
             subTitle: "This is calendar subtitle",
             body: "This is calendar body",
             data: nil)
-        askForNotificationPermissions(notificationInfo: info, trigger: trigger)
+        if needAskNotificationPermission {
+            askForNotificationPermissions(notificationInfo: info, trigger: trigger)
+        } else {
+            requestNotification(notificationInfo: info, trigger: trigger)
+        }
     }
     // 发送时间线通知
-    func scheduleTimeIntervalNotification(at time: Int) {
+    public func scheduleTimeIntervalNotification(at time: Int) {
         // 时间线类型
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(time), repeats: false)
         let info = UserNotificationInfo (
@@ -80,7 +84,7 @@ extension UserNotificationManager {
         askForNotificationPermissions(notificationInfo: info, trigger: trigger)
     }
     // 发送位置通知
-    func scheduleLocationNotification(at coordinate2D: CLLocationCoordinate2D, radius: Int) {
+    public func scheduleLocationNotification(at coordinate2D: CLLocationCoordinate2D, radius: Int) {
         guard CLLocationManager.locationServicesEnabled() else {
             print("【UserNotificationManager】位置服务不可用")
             return
@@ -104,7 +108,7 @@ extension UserNotificationManager {
 // 发送通知逻辑
 extension UserNotificationManager {
     // 发送通知
-    func askForNotificationPermissions(notificationInfo: UserNotificationInfo, trigger: UNNotificationTrigger) {
+    private func askForNotificationPermissions(notificationInfo: UserNotificationInfo, trigger: UNNotificationTrigger) {
         UNUserNotificationCenter.current().requestAuthorization(options: []) { [weak self] granted, err in
             guard granted else {
                 DispatchQueue.main.async {
@@ -119,7 +123,7 @@ extension UserNotificationManager {
         }
     }
     // 请求通知
-    func requestNotification(notificationInfo: UserNotificationInfo, trigger: UNNotificationTrigger) {
+    private func requestNotification(notificationInfo: UserNotificationInfo, trigger: UNNotificationTrigger) {
         let content = notificationContent(notificationInfo: notificationInfo)
         let request = UNNotificationRequest(identifier: notificationInfo.notificationId ?? "",
                                             content: content,
@@ -127,10 +131,10 @@ extension UserNotificationManager {
         notificationRequest(by: request)
     }
     // 通知内容
-    func notificationContent(notificationInfo: UserNotificationInfo) -> UNMutableNotificationContent {
+    private func notificationContent(notificationInfo: UserNotificationInfo) -> UNMutableNotificationContent {
         let content = UNMutableNotificationContent()
         content.sound = UNNotificationSound.default
-        content.badge = 0
+        content.badge = 1
         // 标题
         if let title = notificationInfo.title {
             content.title = title
@@ -154,7 +158,7 @@ extension UserNotificationManager {
         return content
     }
     // 发送通知
-    func notificationRequest(by request: UNNotificationRequest) {
+    private func notificationRequest(by request: UNNotificationRequest) {
         // 本地通知请求写入系统
         UNUserNotificationCenter.current().add(request) { [weak self] (error) in
             if let error = error {
@@ -168,7 +172,7 @@ extension UserNotificationManager {
         }
     }
     // 位置
-    func destinationRegion(notificationInfo: UserNotificationInfo) -> CLCircularRegion {
+    private func destinationRegion(notificationInfo: UserNotificationInfo) -> CLCircularRegion {
         let destRegion = CLCircularRegion(center: notificationInfo.coordinate2D,
                                           radius: notificationInfo.radius ?? 0,
                                           identifier: notificationInfo.locationId ?? "")

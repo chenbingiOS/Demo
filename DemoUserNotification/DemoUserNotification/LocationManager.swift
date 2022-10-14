@@ -26,7 +26,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
 
     func requestLocation() {
-//        manager.requestLocation()
+//        manager.requestLocation() // 只请求一次，模拟器位置变更有获取不到的情况
         manager.startUpdatingLocation()
     }
 

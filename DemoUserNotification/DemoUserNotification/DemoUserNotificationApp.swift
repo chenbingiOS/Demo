@@ -20,9 +20,14 @@ struct DemoUserNotificationApp: App {
 }
 
 class AppDelegate: NSObject, UIApplicationDelegate {
+
+    let notificationHandler = UserNotificationHandler()
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         // 注册通知
-        UserNotificationManager().requestNotificationPermissions()
+        let userNoti = UserNotificationManager()
+        userNoti.requestNotificationPermissions()
+        userNoti.delegate = notificationHandler
         return true
     }
 
