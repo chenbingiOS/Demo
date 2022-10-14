@@ -21,14 +21,8 @@ struct DemoUserNotificationApp: App {
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        UNUserNotificationCenter.current().requestAuthorization(
-            options: [.alert, .badge, .sound]) { (granted, error) in
-                print("是否授权: \(granted)")
-                DispatchQueue.main.async {
-                    // 注册远程通知
-                    UIApplication.shared.registerForRemoteNotifications()
-                }
-            }
+        // 注册通知
+        UserNotificationManager().requestNotificationPermissions()
         return true
     }
 
@@ -48,4 +42,3 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         // 需要在 Signing&Capacities 添加 Push Notifications 功能才能使用，否则提示 Error Domain=NSCocoaErrorDomain Code=3000 "未找到应用程序的“aps-environment”的授权字符串" UserInfo={NSLocalizedDescription=未找到应用程序的“aps-environment”的授权字符串}
     }
 }
-

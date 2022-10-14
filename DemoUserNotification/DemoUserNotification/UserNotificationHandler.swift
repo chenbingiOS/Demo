@@ -41,6 +41,12 @@ enum UserNotificationCategoryType: String {
     case calendarCategory
     case customUICategory
 }
+// 日历类别交互类别行为
+enum CalendarCategoryAction: String {
+    case markAsCompleted
+    case remindMeIn1Minute
+    case remindMeIn5Minutes
+}
 
 struct UserNotificationInfo {
     // ID

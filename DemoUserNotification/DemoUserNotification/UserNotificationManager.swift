@@ -26,6 +26,21 @@ class UserNotificationManager: NSObject, ObservableObject {
         }
     }
 
+    func requestNotificationPermissions() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+            print("是否授权: \(granted)")
+            DispatchQueue.main.async {
+                // 注册远程通知
+                UIApplication.shared.registerForRemoteNotifications()
+            }
+        }
+        // 注册通知操作
+        registerNotificationCategory()
+    }
+}
+
+// 发送本地通知逻辑
+extension UserNotificationManager {
     // 发送日期通知
     func scheduleCalendarNotification(at date: Date) {
         let calendar = Calendar(identifier: .chinese)
@@ -37,7 +52,7 @@ class UserNotificationManager: NSObject, ObservableObject {
         let info = UserNotificationInfo(
             notificationId: UserNotificationType.calendar.rawValue,
             locationId: nil,
-            categoryId: UserNotificationCategoryType.calendarCategory.rawValue,
+            categoryId: UserNotificationCategoryType.calendarCategory.rawValue, // 设置可操作的通知类别
             radius: nil,
             latitude: nil,
             longitude: nil,
@@ -86,7 +101,7 @@ class UserNotificationManager: NSObject, ObservableObject {
         askForNotificationPermissions(notificationInfo: info, trigger: trigger)
     }
 }
-
+// 发送通知逻辑
 extension UserNotificationManager {
     // 发送通知
     func askForNotificationPermissions(notificationInfo: UserNotificationInfo, trigger: UNNotificationTrigger) {
@@ -105,24 +120,38 @@ extension UserNotificationManager {
     }
     // 请求通知
     func requestNotification(notificationInfo: UserNotificationInfo, trigger: UNNotificationTrigger) {
-        let notification = notificationContent(notificationInfo: notificationInfo)
+        let content = notificationContent(notificationInfo: notificationInfo)
         let request = UNNotificationRequest(identifier: notificationInfo.notificationId ?? "",
-                                            content: notification,
+                                            content: content,
                                             trigger: trigger)
         notificationRequest(by: request)
     }
     // 通知内容
     func notificationContent(notificationInfo: UserNotificationInfo) -> UNMutableNotificationContent {
-        let notification = UNMutableNotificationContent()
-        notification.title = notificationInfo.title ?? ""
-        notification.subtitle = notificationInfo.subTitle ?? ""
-        notification.body = notificationInfo.body ?? ""
-        notification.sound = UNNotificationSound.default
-
-        if let data = notificationInfo.data {
-            notification.userInfo = data
+        let content = UNMutableNotificationContent()
+        content.sound = UNNotificationSound.default
+        content.badge = 0
+        // 标题
+        if let title = notificationInfo.title {
+            content.title = title
         }
-        return notification
+        // 子标题
+        if let subTitle = notificationInfo.subTitle {
+            content.subtitle = subTitle
+        }
+        // 内容
+        if let body = notificationInfo.body {
+            content.body = body
+        }
+        // 操作类别ID
+        if let categoryId = notificationInfo.categoryId {
+            content.categoryIdentifier = categoryId
+        }
+        // 额外信息
+        if let data = notificationInfo.data {
+            content.userInfo = data
+        }
+        return content
     }
     // 发送通知
     func notificationRequest(by request: UNNotificationRequest) {
@@ -149,3 +178,27 @@ extension UserNotificationManager {
     }
 }
 
+extension UserNotificationManager {
+    // 注册类别操作行为
+    func registerNotificationCategory() {
+        // calendarCategory
+        let completeAction = UNNotificationAction(identifier: CalendarCategoryAction.markAsCompleted.rawValue,
+                                                  title: "标记为已完成",
+                                                  options: [])
+        let remindMeIn1MinuteAction = UNNotificationAction(identifier: CalendarCategoryAction.remindMeIn1Minute.rawValue,
+                                                           title: "1 分钟后提醒我",
+                                                           options: [])
+        let remindMeIn5MinutesAction = UNNotificationAction(identifier: CalendarCategoryAction.remindMeIn5Minutes.rawValue,
+                                                            title: "5 分钟后提醒我",
+                                                            options: [])
+
+        let calendarCategory = UNNotificationCategory(identifier: UserNotificationCategoryType.calendarCategory.rawValue,
+                                                      actions: [completeAction, remindMeIn5MinutesAction, remindMeIn1MinuteAction], // 数组顺序为显示顺序
+                                                      intentIdentifiers: [],
+                                                      options: [.customDismissAction])
+
+
+        // 设置通知类别可用于选择将在哪些通知上显示哪些操作（通知中心）
+        UNUserNotificationCenter.current().setNotificationCategories([calendarCategory])
+    }
+}
