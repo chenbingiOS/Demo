@@ -90,7 +90,7 @@ class UserNotificationHandler: NSObject, UserNotificationManagerSchedulerDelegat
         case .calendar:
             options = []
         default:
-            options = [.alert, .sound, .badge]
+            options = [.alert, .sound] // 应用内显示通知 .badge 不需要
         }
         completionHandler(options)
     }
