@@ -15,21 +15,19 @@ class NotificationService: UNNotificationServiceExtension {
     override func didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
         self.contentHandler = contentHandler
         bestAttemptContent = (request.content.mutableCopy() as? UNMutableNotificationContent)
-        
-        if let bestAttemptContent = bestAttemptContent {
-            // Modify the notification content here...
-            bestAttemptContent.title = "\(bestAttemptContent.title) [modified]"
-            // 内容修改
-            bestAttemptContent.body = "\(bestAttemptContent.body) [新修改内容]"
 
-            let userInfo = bestAttemptContent.userInfo
-            let encryptionContent = userInfo["encrypted-content"] as? String
-            // 端到端加密
-            bestAttemptContent.subtitle = "\(bestAttemptContent.subtitle) \(encryptionContent ?? "")"
+        guard let bestAttemptContent = bestAttemptContent,
+              let attachmentURLAsString = bestAttemptContent.userInfo["media-url"] as? String,
+              let attachmentURL = URL(string: attachmentURLAsString)
+        else {
+            return
+        }
 
-            print("触发修改")
-
-            contentHandler(bestAttemptContent)
+        downloadImageFrom(url: attachmentURL) { attachment in
+            if attachment != nil {
+                bestAttemptContent.attachments = [attachment!] // 有数据，强制解包
+                contentHandler(bestAttemptContent)
+            }
         }
     }
     
@@ -40,5 +38,28 @@ class NotificationService: UNNotificationServiceExtension {
             contentHandler(bestAttemptContent)
         }
     }
+}
 
+extension NotificationService {
+    private func downloadImageFrom(url: URL, with completionHandler: @escaping (UNNotificationAttachment?) -> Void) {
+        let task = URLSession.shared.downloadTask(with: url) { localURL, response, error in
+            guard let fileURL = localURL else {
+                completionHandler(nil)
+                return
+            }
+
+            var urlPath = URL(fileURLWithPath: NSTemporaryDirectory())
+            let uniqueURLString = ProcessInfo.processInfo.globallyUniqueString + ".png"
+            urlPath = urlPath.appendingPathComponent(uniqueURLString)
+
+            try? FileManager.default.moveItem(at: fileURL, to: urlPath)
+            do {
+                let attachment = try UNNotificationAttachment(identifier: "picture", url: urlPath)
+                completionHandler(attachment)
+            } catch {
+                completionHandler(nil)
+            }
+        }
+        task.resume()
+    }
 }
