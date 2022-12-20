@@ -34,12 +34,12 @@ struct CalendarView: View {
             Text(notificationType.descriptionText)
         }
         // 通知
-        .alert("通知已禁用", isPresented: $showAlert) {
-            Button("取消") { print("取消") }
-            Button("设置") { UIApplication.shared.open(settingURL) }
-        } message: {
-            Text("进入App设置中打开通知")
-        }
+//        .alert("通知已禁用", isPresented: $showAlert) {
+//            Button("取消") { print("取消") }
+//            Button("设置") { UIApplication.shared.open(settingURL) }
+//        } message: {
+//            Text("进入App设置中打开通知")
+//        }
         // 页面展示后查询通知权限
         .onAppear() {
             UNUserNotificationCenter.current().getNotificationSettings { (settings) in

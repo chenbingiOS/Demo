@@ -47,9 +47,9 @@ struct LocationView: View {
         .padding()
         Text(notificationType.descriptionText)
             .padding()
-        LocationButton {
-            locationManager.requestLocation()
-        }
+//        LocationButton {
+//            locationManager.requestLocation()
+//        }
         .frame(height: 44)
         .padding()
     }

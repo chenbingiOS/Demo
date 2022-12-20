@@ -202,7 +202,21 @@ extension UserNotificationManager {
                                                       options: [.customDismissAction])
 
 
+        // customUICategory
+        let nextAction = UNNotificationAction(identifier: CustomizeUICategoryAction.changeImage.rawValue,
+                                              title: "换个封面",
+                                              options: [.foreground])
+        let commentAction = UNTextInputNotificationAction(identifier: CustomizeUICategoryAction.comment.rawValue,
+                                                          title: "Comment",
+                                                          options: [.foreground],
+                                                          textInputButtonTitle: "Send",
+                                                          textInputPlaceholder: "Say something")
+        let customUICategory = UNNotificationCategory(identifier: UserNotificationCategoryType.customUICategory.rawValue,
+                                                      actions: [nextAction, commentAction],
+                                                      intentIdentifiers: [],
+                                                      options: [.customDismissAction])
+
         // 设置通知类别可用于选择将在哪些通知上显示哪些操作（通知中心）
-        UNUserNotificationCenter.current().setNotificationCategories([calendarCategory])
+        UNUserNotificationCenter.current().setNotificationCategories([calendarCategory, customUICategory])
     }
 }

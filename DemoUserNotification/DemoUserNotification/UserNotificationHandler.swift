@@ -48,6 +48,11 @@ enum CalendarCategoryAction: String {
     case remindMeIn5Minutes
 }
 
+enum CustomizeUICategoryAction: String {
+    case changeImage
+    case comment
+}
+
 struct UserNotificationInfo {
     // ID
     let notificationId: String?
@@ -79,6 +84,7 @@ class UserNotificationHandler: NSObject, UserNotificationManagerSchedulerDelegat
     func notificationScheduled(error: Error?) {}
     // 如果通知到达时您的应用程序位于前台，共享用户通知中心将调用此方法将通知直接传递到您的应用
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print("【UserNotificationHandler】应用处于前台收到推送")
         // 类别
         guard let notificationType = UserNotificationType(rawValue: notification.request.identifier) else {
             completionHandler([])
@@ -135,15 +141,13 @@ class UserNotificationHandler: NSObject, UserNotificationManagerSchedulerDelegat
     // 自定义事件执行
     private func handleCustomUICategory(response: UNNotificationResponse) {
 //        var text: String = ""
-//
-//
 //        if let actionType = CustomizeUICategoryAction(rawValue: response.actionIdentifier) {
 //            switch actionType {
-//            case .stop:
+//            case .changeImage:
 //                break;
-//
 //            case .comment:
-//                text = (response as! UNTextInputNotificationResponse).userText
+////                text = (response as! UNTextInputNotificationResponse).userText
+//                break;
 //            }
 //        }
 //
@@ -156,7 +160,7 @@ class UserNotificationHandler: NSObject, UserNotificationManagerSchedulerDelegat
 //            viewController?.present(alertController, animated: true, completion: nil)
 //        }
 //
-//        print(response.actionIdentifier)
+        print(response.actionIdentifier)
     }
 }
 
